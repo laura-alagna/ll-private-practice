@@ -3,417 +3,423 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Comfort Kits for Children with Food Allergies | Comfort Kits for Children®</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <title>Comfort Kits for Children with Food Allergies | Lisa Lombard, PhD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
   <script src="https://cdn.weglot.com/weglot.min.js"></script>
   <style>
     :root {
+      --cream:      #faf7f4;
+      --warm-white: #f5f0eb;
+      --sage:       #8a9e8c;
+      --sage-light: #c4d3c5;
+      --sage-dark:  #5a7360;
+      --blue:       #6b8fa3;
+      --blue-light: #dde8ee;
+      --blue-dark:  #4d6f82;
       --teal:       #3aada8;
       --teal-dark:  #2a8f8a;
       --teal-light: #d4f0ee;
-      --coral:      #f4735a;
-      --coral-light:#fde8e3;
       --gold:       #f5b942;
       --gold-light: #fef3d8;
-      --plum:       #7b5ea7;
-      --plum-light: #ede6f6;
-      --cream:      #fdfaf5;
-      --ink:        #1e2a2a;
-      --ink-soft:   #4a5a5a;
+      --charcoal:   #2c2c2c;
+      --mid:        #5a5550;
+      --light-text: #8a8480;
+      --border:     #ddd5ca;
       --white:      #ffffff;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html, body {
-      max-width: 100%;
-      overflow-x: hidden;
-    }
+    html, body { max-width: 100%; overflow-x: hidden; }
 
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Jost', sans-serif;
       background: var(--cream);
-      color: var(--ink);
+      color: var(--charcoal);
+      font-weight: 300;
       line-height: 1.7;
     }
 
-    /* ── FADE IN — starts visible, animates in if JS works ── */
-    .fade-in {
-      opacity: 1;
-      transform: translateY(0);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .fade-in.js-ready {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    /* ── FADE IN ── */
+    .fade-in { opacity: 1; transform: translateY(0); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.js-ready { opacity: 0; transform: translateY(20px); }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
 
     /* ── HERO ── */
     .hero {
-      background: linear-gradient(135deg, #b8e8e6 0%, var(--teal-light) 45%, #e0f5f4 100%);
-      padding: 4rem 1.5rem 3rem;
+      padding: 56px 32px 52px;
       text-align: center;
       position: relative; overflow: hidden;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
     }
     .hero::before {
       content: '';
       position: absolute; inset: 0;
-      background: radial-gradient(circle at 15% 85%, rgba(58,173,168,0.18) 0%, transparent 55%),
-                  radial-gradient(circle at 85% 15%, rgba(42,143,138,0.14) 0%, transparent 55%);
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(58,173,168,0.08) 0%, transparent 70%);
+      pointer-events: none;
     }
     .hero-inner { position: relative; max-width: 780px; margin: 0 auto; }
-    .hero-logo { width: 120px; margin-bottom: 1.25rem; }
-    .hero h1 {
-      font-family: 'Fraunces', serif;
-      font-size: clamp(1.8rem, 5vw, 3.2rem);
-      font-weight: 700; color: var(--ink);
-      line-height: 1.2; margin-bottom: 1rem;
+
+    .hero-logo-wrap { margin-bottom: 1.25rem; }
+    .hero-logo { width: 140px; display: block; margin: 0 auto; }
+    .hero-logo-placeholder {
+      display: none;
+      width: 140px; height: 72px;
+      margin: 0 auto;
+      background: var(--teal-light);
+      border: 1px dashed rgba(58,173,168,0.4);
+      border-radius: 10px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      color: var(--teal-dark);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
-    .hero h1 span { color: var(--teal-dark); }
+    .hero-logo-placeholder svg { width: 22px; height: 22px; }
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal-dark);
+      margin-bottom: 10px;
+      display: block;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 400;
+      color: var(--charcoal);
+      line-height: 1.15; margin-bottom: 16px;
+      letter-spacing: 0.01em;
+    }
+    .hero h1 em { font-style: italic; color: var(--teal-dark); }
     .hero-sub {
-      font-size: clamp(0.95rem, 2.5vw, 1.15rem);
-      color: var(--ink-soft);
-      max-width: 600px; margin: 0 auto 1.75rem;
+      font-size: 0.97rem;
+      color: var(--mid);
+      max-width: 580px; margin: 0 auto 28px;
+      line-height: 1.85;
     }
     .hero-byline {
       display: inline-block;
       background: var(--white);
-      border: 2px solid var(--teal-light);
-      border-radius: 40px;
-      padding: 0.5rem 1.25rem;
-      font-size: 0.88rem; font-weight: 600; color: var(--teal-dark);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 10px 24px;
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--mid);
     }
 
-    /* ── SECTIONS ── */
-    .section { padding: 3.5rem 1.5rem; }
-    .section-inner { max-width: 900px; margin: 0 auto; }
-    .section-label {
-      display: inline-block;
-      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--teal-dark);
-      background: var(--teal-light); border-radius: 20px;
-      padding: 0.3rem 0.9rem; margin-bottom: 0.85rem;
+    /* ── CONTAINER ── */
+    .container { max-width: 900px; margin: 0 auto; padding: 0 32px; }
+
+    /* ── SECTION TITLES ── */
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.1rem);
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 14px;
+      line-height: 1.25;
     }
-    .section h2 {
-      font-family: 'Fraunces', serif;
-      font-size: clamp(1.4rem, 3.5vw, 2.2rem);
-      font-weight: 700; color: var(--ink);
-      margin-bottom: 1.25rem; line-height: 1.3;
+    .section-desc {
+      font-size: 0.92rem;
+      color: var(--mid);
+      line-height: 1.9;
+      margin-bottom: 12px;
     }
-    .section p { color: var(--ink-soft); margin-bottom: 1rem; font-size: 1rem; }
-    .section p:last-child { margin-bottom: 0; }
+    .section-desc:last-child { margin-bottom: 0; }
+
+    /* ── PARTNERSHIP BADGE ── */
+    .partnership-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--teal-light);
+      border: 1px solid rgba(58,173,168,0.3);
+      border-radius: 100px;
+      padding: 7px 16px;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      color: var(--teal-dark);
+      text-decoration: none;
+      transition: background 0.2s;
+      margin-bottom: 28px;
+      max-width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    @media (max-width: 480px) {
+      .partnership-badge {
+        font-size: 0.72rem;
+        padding: 6px 12px;
+        white-space: normal;
+        text-align: center;
+        justify-content: center;
+      }
+    }
+    .partnership-badge:hover { background: #c0e8e5; }
+    .partnership-badge svg { width: 13px; height: 13px; fill: var(--teal-dark); flex-shrink: 0; }
 
     /* ── INTRO ── */
-    .intro { background: var(--white); border-top: 4px solid var(--teal); }
+    .intro-section { padding: 56px 0 48px; }
 
-    /* ── WHY IT WORKS ── */
-    .why { background: var(--teal-light); }
-    .why .section-label { background: var(--teal); color: var(--white); }
-    .why h2 { color: var(--teal-dark); }
-    .why-grid {
+    /* ── ACTIVITIES (merged) ── */
+    .activities-section { padding: 56px 0; }
+    .activities-section .section-label { color: var(--teal-dark); }
+    .all-activities-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.25rem; margin-top: 2rem;
+      gap: 16px; margin-top: 28px;
     }
-    .why-card {
+    .all-act-card {
       background: var(--white);
-      border-radius: 16px;
-      padding: 1.4rem 1.5rem;
-      border-left: 4px solid var(--teal);
-      box-shadow: 0 2px 12px rgba(58,173,168,0.1);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 18px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+      display: flex; gap: 14px; align-items: flex-start;
     }
-    .why-card h3 { font-size: 1rem; font-weight: 700; color: var(--teal-dark); margin-bottom: 0.4rem; }
-    .why-card p { font-size: 0.92rem; color: var(--ink-soft); margin: 0; }
-
-    /* ── ACTIVITIES ── */
-    .activities { background: var(--white); }
-    .activities-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem; margin-top: 2rem;
-    }
-    .act-group h3 {
-      font-family: 'Fraunces', serif;
-      font-size: 1.1rem; font-weight: 600;
-      color: var(--teal-dark); margin-bottom: 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid var(--teal-light);
-    }
-    .act-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-    .act-list li {
-      display: flex; align-items: flex-start; gap: 0.7rem;
-      font-size: 0.95rem;
-    }
+    .all-act-card.fa-card { border-left: 3px solid var(--gold); }
+    .all-act-card:not(.fa-card) { border-left: 3px solid var(--teal); }
     .act-num {
-      flex-shrink: 0;
-      width: 26px; height: 26px;
+      flex-shrink: 0; width: 28px; height: 28px;
       background: var(--teal); color: var(--white);
-      border-radius: 50%; font-size: 0.78rem; font-weight: 700;
+      border-radius: 50%; font-size: 0.75rem; font-weight: 500;
       display: flex; align-items: center; justify-content: center;
+      margin-top: 2px;
     }
-    .act-fa .act-num { background: var(--gold); color: var(--ink); }
-    .act-list li strong { display: block; font-weight: 700; color: var(--ink); line-height: 1.2; }
-    .act-list li em { font-style: italic; font-size: 0.87rem; color: var(--ink-soft); }
+    .fa-card .act-num { background: var(--gold); color: var(--charcoal); }
+    .all-act-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem; font-weight: 400;
+      color: var(--charcoal); margin-bottom: 4px; line-height: 1.3;
+    }
+    .all-act-card p { font-size: 0.85rem; color: var(--mid); line-height: 1.65; }
+    .act-note {
+      margin-top: 20px; background: var(--gold-light);
+      border-radius: 10px; padding: 14px 16px;
+      font-size: 0.87rem; color: var(--mid); line-height: 1.7;
+    }
+    .act-note strong { color: var(--charcoal); font-weight: 400; }
 
     /* ── KIT CONTENTS ── */
-    .kit-contents { background: var(--teal-dark); }
-    .kit-contents .section-label { background: rgba(255,255,255,0.2); color: var(--white); }
-    .kit-contents h2 { color: var(--white); }
-    .kit-contents p { color: rgba(255,255,255,0.85); }
-    .kit-bullet-list {
-      margin-top: 1.5rem;
-      columns: 2; column-gap: 3rem;
-      list-style: none;
-    }
+    .kit-section { background: var(--sage-dark); padding: 56px 32px; }
+    .kit-section .section-label { color: rgba(255,255,255,0.65); }
+    .kit-bullet-list { margin-top: 24px; columns: 2; column-gap: 3rem; list-style: none; }
     .kit-bullet-list li {
-      display: flex; align-items: baseline; gap: 0.6rem;
-      padding: 0.45rem 0;
-      font-size: 0.97rem; color: var(--white);
-      border-bottom: 1px solid rgba(255,255,255,0.12);
-      break-inside: avoid;
+      display: flex; align-items: baseline; gap: 10px;
+      padding: 10px 0; font-size: 0.92rem; color: rgba(255,255,255,0.9);
+      border-bottom: 1px solid rgba(255,255,255,0.1); break-inside: avoid;
     }
-    .kit-bullet-list li::before {
-      content: '—';
-      color: var(--teal-light);
-      font-weight: 700; flex-shrink: 0;
-    }
+    .kit-bullet-list li::before { content: '—'; color: var(--teal-light); flex-shrink: 0; }
 
     /* ── WHEN IT HELPS ── */
-    .when { background: var(--cream); }
-    .when-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem; margin-top: 1.75rem;
-    }
+    .when-section { padding: 56px 0; }
+    .when-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 24px; }
     .when-card {
-      background: var(--white);
-      border-radius: 14px;
-      padding: 1rem 1.25rem;
-      font-size: 0.94rem; color: var(--ink-soft);
-      font-weight: 500;
-      border-left: 4px solid var(--teal);
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 10px; padding: 14px 16px;
+      font-size: 0.88rem; color: var(--mid); font-weight: 300;
+      border-left: 3px solid var(--teal);
+      box-shadow: 0 1px 6px rgba(0,0,0,0.03);
     }
 
     /* ── CAREGIVER TIPS ── */
-    .tips { background: var(--teal-light); }
-    .tips .section-label { background: var(--teal); color: var(--white); }
-    .tips h2 { color: var(--teal-dark); }
-    .tips-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; margin-top: 1.75rem; }
+    .tips-section { background: var(--warm-white); padding: 56px 32px; }
+    .tips-section .section-label { color: var(--teal-dark); }
+    .tips-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
     .tips-list li {
-      display: flex; gap: 1rem; align-items: flex-start;
-      background: var(--white); border-radius: 14px;
-      padding: 1rem 1.25rem;
-      font-size: 0.97rem; color: var(--ink-soft);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      display: flex; gap: 14px; align-items: flex-start;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 10px; padding: 14px 18px;
+      font-size: 0.9rem; color: var(--mid);
+      box-shadow: 0 1px 6px rgba(0,0,0,0.03);
     }
-    .tips-list li::before {
-      content: '✓';
-      color: var(--teal-dark); font-weight: 700; font-size: 1.1rem;
-      flex-shrink: 0; margin-top: 0.05rem;
+    .tips-list li::before { content: '✓'; color: var(--teal-dark); font-weight: 500; font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+    .when-note {
+      margin-top: 24px; background: var(--white);
+      border: 1px solid var(--border); border-left: 3px solid var(--teal);
+      border-radius: 0 10px 10px 0; padding: 16px 20px;
+      font-size: 0.88rem; color: var(--mid); line-height: 1.8;
     }
+    .when-note strong { color: var(--charcoal); font-weight: 400; }
 
     /* ── FOR PROVIDERS ── */
-    .providers { background: var(--teal); }
-    .providers .section-label { background: rgba(255,255,255,0.25); color: var(--white); }
-    .providers h2, .providers p { color: var(--white); }
-    .providers h2 { margin-bottom: 1rem; }
-    .providers p { opacity: 0.92; }
-    .providers-inner {
-      display: grid; grid-template-columns: 1fr auto;
-      gap: 2rem; align-items: center;
-    }
+    .providers-section { padding: 56px 0; }
+    .providers-grid { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: start; margin-top: 8px; }
     .provider-contact {
-      background: var(--white); border-radius: 16px;
-      padding: 1.5rem 2rem; text-align: center;
-      flex-shrink: 0; min-width: 220px;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 12px; padding: 24px; text-align: center;
+      min-width: 210px; box-shadow: 0 2px 12px rgba(0,0,0,0.04);
     }
-    .provider-contact p { color: var(--ink-soft) !important; font-size: 0.92rem; margin-bottom: 0.5rem; opacity: 1 !important; }
+    .provider-contact p {
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--light-text); margin-bottom: 6px;
+    }
     .provider-contact a {
-      color: var(--teal-dark); font-weight: 700;
-      text-decoration: none; font-size: 0.97rem;
+      color: var(--teal-dark);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; font-weight: 400;
+      text-decoration: none; display: block; margin-bottom: 16px;
     }
+    .provider-contact a:last-child { margin-bottom: 0; }
     .provider-contact a:hover { text-decoration: underline; }
 
     /* ── CTA ── */
     .cta-section {
-      background: var(--cream);
-      padding: 3.5rem 1.5rem;
-      text-align: center;
+      background: var(--warm-white); border: 1px solid var(--border);
+      border-radius: 16px; text-align: center;
+      padding: 52px 40px 56px;
+      margin: 0 32px 72px;
     }
     .cta-section h2 {
-      font-family: 'Fraunces', serif;
-      font-size: clamp(1.4rem, 3vw, 2rem);
-      color: var(--ink); margin-bottom: 0.75rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
+      font-weight: 400; color: var(--charcoal); margin-bottom: 12px;
     }
-    .cta-section p { color: var(--ink-soft); margin-bottom: 1.75rem; font-size: 1rem; }
-    .btn {
-      display: inline-block; padding: 0.85rem 1.75rem;
-      border-radius: 50px; font-weight: 700; font-size: 0.95rem;
-      text-decoration: none; transition: transform 0.15s, box-shadow 0.15s;
+    .cta-section > p {
+      font-size: 0.92rem; color: var(--mid); line-height: 1.8;
+      max-width: 500px; margin: 0 auto 8px;
     }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
-    .btn-teal { background: var(--teal); color: var(--white); }
-    .btn-coral { background: var(--coral); color: var(--white); }
-    .btn-outline {
-      background: transparent; color: var(--teal-dark);
-      border: 2px solid var(--teal);
+    .cta-partnership {
+      font-size: 0.82rem; color: var(--light-text);
+      margin-bottom: 0 !important;
     }
-    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--ink); color: rgba(255,255,255,0.7);
-      text-align: center; padding: 2.5rem 1.5rem;
-      font-size: 0.88rem; line-height: 1.8;
+    .cta-partnership a { color: var(--teal-dark); text-decoration: none; }
+    .cta-partnership a:hover { text-decoration: underline; }
+    .cta-contacts { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 28px; }
+    .cta-item {
+      display: flex; align-items: center; gap: 12px;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 12px; padding: 18px 28px;
+      text-decoration: none; transition: all 0.2s;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
-    footer a { color: var(--teal-light); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
+    .cta-item:hover { border-color: var(--sage); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.09); }
+    .cta-item-icon {
+      width: 40px; height: 40px; background: var(--sage-dark);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .cta-item-icon svg { width: 18px; height: 18px; fill: #fff; }
+    .cta-item-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--light-text); display: block; margin-bottom: 2px; }
+    .cta-item-value { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: var(--charcoal); display: block; white-space: nowrap; }
 
     /* ── MOBILE ── */
     @media (max-width: 600px) {
-      .activities-grid { grid-template-columns: 1fr; }
-      .providers-inner { grid-template-columns: 1fr; }
-      .provider-contact { min-width: unset; }
+      .hero { padding: 40px 20px 36px; }
+      .container { padding: 0 20px; }
+      .kit-section, .tips-section { padding: 40px 20px; }
+      .all-activities-grid { grid-template-columns: 1fr; }
       .kit-bullet-list { columns: 1; }
-      .cta-buttons { flex-direction: column; align-items: center; }
-      .btn { width: 100%; max-width: 280px; text-align: center; }
+      .cta-section { margin: 0 16px 48px; padding: 36px 20px 40px; }
+      .cta-contacts { flex-direction: column; align-items: center; }
+      .cta-item { justify-content: center; text-align: left; }
     }
   </style>
 </head>
 <body>
 
 <!-- HERO -->
-<section class="hero">
+<header class="hero">
   <div class="hero-inner fade-in">
-    <img src="teal_ck4c_logo_FA.webp" alt="Comfort Kits for Children with Food Allergies logo" class="hero-logo" />
-    <h1>Comfort Kits for Children<br><span>with Food Allergies</span></h1>
+    <!-- Replace src with your hosted logo URL, e.g. teal_ck4c_logo_FA.webp -->
+    <div class="hero-logo-wrap">
+      <img src="teal_ck4c_logo_FA.webp" alt="Comfort Kits for Children with Food Allergies"
+           class="hero-logo"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+      <div class="hero-logo-placeholder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+        <span>Logo</span>
+      </div>
+    </div>
+    <h1>Comfort Kits for Children<br><em>with Food Allergies</em></h1>
     <p class="hero-sub">Evidence-based mind-body tools to help children manage the anxiety, stress, and emotional burden of living with a food allergy.</p>
-    <span class="hero-byline">Created by Lisa Lombard, PhD &nbsp;·&nbsp; Licensed Clinical Psychologist</span>
+    <span class="hero-byline">A clinical program by Lisa Lombard, PhD</span>
   </div>
-</section>
+</header>
 
 <!-- INTRO -->
-<section class="section intro">
-  <div class="section-inner fade-in">
-    <span class="section-label">About This Program</span>
-    <h2>The Emotional Reality of Food Allergies</h2>
-    <p>Food allergies are a chronic health condition that often stays out of sight — until a reaction occurs. Yet day-to-day food allergy management places a continuous emotional and practical burden on children, teens, and their families.</p>
-    <p>The emotional impact can take many forms: worry and anxiety, fear, hypervigilance that alters routines, and sadness or frustration that can diminish overall well-being. Sometimes these reactions are temporary and manageable. But they can also become persistent, interfere with daily functioning, and impact healthy development.</p>
-    <p>Children's thoughts, emotions, and physical responses are closely linked. Anxiety can heighten physical sensations, and physical symptoms can, in turn, amplify worry. Helping children understand and work with this connection allows them to feel more in control of their bodies and their experiences.</p>
-    <p>Families managing food allergies must navigate cultural and social experiences, particularly around food-centered gatherings and traditions. My approach helps families strengthen stress management skills, build cognitive flexibility, and foster a sense of connection and belonging — so that children don't just get through, but truly thrive.</p>
-  </div>
-</section>
-
-<!-- WHY IT WORKS -->
-<section class="section why">
-  <div class="section-inner">
+<div class="container">
+  <div class="intro-section">
     <div class="fade-in">
-      <span class="section-label">Why It Works</span>
-      <h2>A Clinical Approach Grounded in Evidence</h2>
-      <p>The six core mind-body practices in every kit are the same evidence-informed techniques used in clinical work with children and families managing food allergies. When children practice these tools regularly, they build resilience and a greater sense of control over their own bodies — which matters enormously for a child who may feel powerless in the face of an allergic reaction.</p>
-    </div>
-    <div class="why-grid">
-      <div class="why-card fade-in">
-        <h3>Calm Breathing</h3>
-        <p>Belly breathing with a finger puppet teaches children to notice the mind-body connection — reducing anxiety before high-stress situations like a new restaurant or birthday party.</p>
-      </div>
-      <div class="why-card fade-in">
-        <h3>Progressive Muscle Relaxation</h3>
-        <p>"Catch the Relaxation Wave" helps children release physical tension that builds with food-related anxiety, calming the body's fight-or-flight response.</p>
-      </div>
-      <div class="why-card fade-in">
-        <h3>Journaling &amp; Drawing</h3>
-        <p>Gives children a safe outlet to process feelings of being "different" or isolated because of their dietary restrictions.</p>
-      </div>
-      <div class="why-card fade-in">
-        <h3>Guided Imagery</h3>
-        <p>A powerful tool for shifting attention away from discomfort or worry — especially useful during medical appointments or after a reaction.</p>
-      </div>
-      <div class="why-card fade-in">
-        <h3>Positive Self-Talk</h3>
-        <p>Calming phrases that address distorted or "sticky" thoughts, building cognitive flexibility and confidence in real-world situations.</p>
-      </div>
-      <div class="why-card fade-in">
-        <h3>Movement &amp; Yoga</h3>
-        <p>Energy resets that help children discharge stress in the body, making it easier to return to calm after anxious moments.</p>
-      </div>
+      <a href="https://www.comfortkitsforchildren.org" target="_blank" class="partnership-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        In partnership with Comfort Kits for Children® &nbsp;→
+      </a>
+      <span class="section-label">About This Program</span>
+      <h2 class="section-title">The Emotional Reality of Food Allergies</h2>
+      <p class="section-desc">Food allergies are a chronic health condition that often stays out of sight — until a reaction occurs. Yet day-to-day food allergy management places a continuous emotional and practical burden on children, teens, and their families.</p>
+      <p class="section-desc">The emotional impact can take many forms: worry and anxiety, fear, hypervigilance that alters routines, and sadness or frustration that can diminish overall well-being. Sometimes these reactions are temporary and manageable. But they can also become persistent, interfere with daily functioning, and impact healthy development.</p>
+      <p class="section-desc">Children's thoughts, emotions, and physical responses are closely linked. Anxiety can heighten physical sensations, and physical symptoms can, in turn, amplify worry. Helping children understand and work with this connection allows them to feel more in control of their bodies and their experiences.</p>
+      <p class="section-desc">Families managing food allergies must navigate cultural and social experiences, particularly around food-centered gatherings and traditions. My approach helps families strengthen stress management skills, build cognitive flexibility, and foster a sense of connection and belonging — so that children don't just get through, but truly thrive.</p>
     </div>
   </div>
-</section>
+</div>
 
-<!-- ACTIVITIES -->
-<section class="section activities">
-  <div class="section-inner">
+<!-- ACTIVITIES (merged) -->
+<div class="container">
+  <div class="activities-section">
     <div class="fade-in">
       <span class="section-label">The 9 Activities</span>
-      <h2>Six Core Activities + Three Food Allergy–Specific Tools</h2>
-      <p>What makes this kit unique: in addition to six proven mind-body practices, Dr. Lombard has designed three activities specifically for children managing food allergies and their big feelings.</p>
+      <h2 class="section-title">Evidence-Based Mind-Body Tools</h2>
+      <p class="section-desc">Every kit includes six core mind-body practices — the same techniques used in clinical work with children managing anxiety and chronic health conditions — plus three activities designed specifically for food allergy stress. Teal numbers are core activities; gold are food allergy–specific.</p>
     </div>
-    <div class="activities-grid fade-in">
-      <div class="act-group">
-        <h3>6 Core Mind-Body Activities</h3>
-        <ul class="act-list">
-          <li>
-            <span class="act-num">1</span>
-            <div><strong>Calm Breathing</strong><em>Belly breathing to release worry &amp; pain</em></div>
-          </li>
-          <li>
-            <span class="act-num">2</span>
-            <div><strong>Tense &amp; Sense</strong><em>Progressive muscle relaxation for anxiety</em></div>
-          </li>
-          <li>
-            <span class="act-num">3</span>
-            <div><strong>Repeat &amp; Treat</strong><em>Calming self-talk phrases for body &amp; mind</em></div>
-          </li>
-          <li>
-            <span class="act-num">4</span>
-            <div><strong>Mind Journey</strong><em>Guided imagery to a happy, safe place</em></div>
-          </li>
-          <li>
-            <span class="act-num">5</span>
-            <div><strong>Art from the Heart</strong><em>Journaling &amp; drawing for emotional release</em></div>
-          </li>
-          <li>
-            <span class="act-num">6</span>
-            <div><strong>Motion Is the Lotion</strong><em>Movement &amp; yoga poses to reset the body</em></div>
-          </li>
-        </ul>
+    <div class="all-activities-grid fade-in">
+      <div class="all-act-card">
+        <span class="act-num">1</span>
+        <div><h3>Calm Breathing</h3><p>Belly breathing with a finger puppet teaches children to notice the mind-body connection — reducing anxiety before high-stress situations like a new restaurant or birthday party.</p></div>
       </div>
-      <div class="act-group">
-        <h3>3 Food Allergy–Specific Activities</h3>
-        <ul class="act-list act-fa">
-          <li>
-            <span class="act-num">7</span>
-            <div><strong>Use Checklists</strong><em>Patterns help build confidence &amp; decrease mental load</em></div>
-          </li>
-          <li>
-            <span class="act-num">8</span>
-            <div><strong>Brave Moments Journal</strong><em>Track courage; reframe allergy experiences</em></div>
-          </li>
-          <li>
-            <span class="act-num">9</span>
-            <div><strong>Rainbow Beads</strong><em>Visual bravery tracker to rewire anxious thinking</em></div>
-          </li>
-        </ul>
-        <div style="margin-top:1.5rem; background:var(--gold-light); border-radius:12px; padding:1rem 1.25rem; font-size:0.9rem; color:var(--ink-soft);">
-          <strong style="color:var(--ink);">Can be used anywhere, anytime</strong> — at meals, school lunch, parties, bedtime, OIT dosing, oral food challenges, allergy testing, and more.
-        </div>
+      <div class="all-act-card">
+        <span class="act-num">2</span>
+        <div><h3>Tense &amp; Sense</h3><p>"Catch the Relaxation Wave" helps children release physical tension that builds with food-related anxiety, calming the body's fight-or-flight response.</p></div>
+      </div>
+      <div class="all-act-card">
+        <span class="act-num">3</span>
+        <div><h3>Repeat &amp; Treat</h3><p>Calming self-talk phrases that address distorted or "sticky" thoughts, building cognitive flexibility and confidence in real-world situations.</p></div>
+      </div>
+      <div class="all-act-card">
+        <span class="act-num">4</span>
+        <div><h3>Mind Journey</h3><p>Guided imagery to a happy, safe place — a powerful tool for shifting attention away from discomfort or worry, especially useful during medical appointments or after a reaction.</p></div>
+      </div>
+      <div class="all-act-card">
+        <span class="act-num">5</span>
+        <div><h3>Art from the Heart</h3><p>Journaling and drawing give children a safe outlet to process feelings of being "different" or isolated because of their dietary restrictions.</p></div>
+      </div>
+      <div class="all-act-card">
+        <span class="act-num">6</span>
+        <div><h3>Motion Is the Lotion</h3><p>Movement and yoga poses help children discharge stress in the body, making it easier to return to calm after anxious moments.</p></div>
+      </div>
+      <div class="all-act-card fa-card">
+        <span class="act-num">7</span>
+        <div><h3>Use Checklists</h3><p>Consistent patterns around meal prep and outings help build confidence and decrease the mental load of constant allergy vigilance.</p></div>
+      </div>
+      <div class="all-act-card fa-card">
+        <span class="act-num">8</span>
+        <div><h3>Brave Moments Journal</h3><p>Track acts of courage — asking about ingredients, trying a new safe food — to reframe the food allergy experience and build a sense of agency.</p></div>
+      </div>
+      <div class="all-act-card fa-card">
+        <span class="act-num">9</span>
+        <div><h3>Rainbow Beads</h3><p>A visual bravery tracker that helps rewire anxious thinking by making courageous moments tangible and visible over time.</p></div>
       </div>
     </div>
+    <div class="act-note fade-in"><strong>Can be used anywhere, anytime</strong> — at meals, school lunch, parties, bedtime, OIT dosing, oral food challenges, allergy testing, and more.</div>
   </div>
-</section>
+</div>
 
 <!-- KIT CONTENTS -->
-<section class="section kit-contents">
-  <div class="section-inner">
+<section class="kit-section">
+  <div class="container">
     <div class="fade-in">
       <span class="section-label">What's Inside</span>
-      <h2>Kit Contents</h2>
-      <p>Every kit includes carefully selected physical items that support the 9 Mind-Body Comfort Activities, plus a QR code linking to audio guidance for caregivers and children.</p>
+      <h2 class="section-title" style="color:var(--white);">Kit Contents</h2>
+      <p class="section-desc" style="color:rgba(255,255,255,0.78);">Every kit includes carefully selected physical items that support the 9 Mind-Body Comfort Activities, plus a QR code linking to audio guidance for caregivers and children.</p>
     </div>
     <ul class="kit-bullet-list fade-in">
       <li>Soap bubbles with wand</li>
@@ -430,12 +436,12 @@
 </section>
 
 <!-- WHEN IT HELPS -->
-<section class="section when">
-  <div class="section-inner">
+<div class="container">
+  <div class="when-section">
     <div class="fade-in">
       <span class="section-label">Stress Points</span>
-      <h2>When Children Can Use These Tools</h2>
-      <p>These activities are designed for use at the specific moments when food allergy anxiety typically peaks.</p>
+      <h2 class="section-title">When Children Can Use These Tools</h2>
+      <p class="section-desc">These activities are designed for the specific moments when food allergy anxiety typically peaks.</p>
     </div>
     <div class="when-grid fade-in">
       <div class="when-card">Mealtimes, cafeterias &amp; restaurants</div>
@@ -448,15 +454,15 @@
       <div class="when-card">Building long-term confidence &amp; resilience</div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- CAREGIVER TIPS -->
-<section class="section tips">
-  <div class="section-inner">
+<section class="tips-section">
+  <div class="container">
     <div class="fade-in">
       <span class="section-label">For Caregivers</span>
-      <h2>How to Support Your Child</h2>
-      <p>Food allergy anxiety is valid, common, and very treatable. Here's how caregivers can get the most from the kit.</p>
+      <h2 class="section-title">How to Support Your Child</h2>
+      <p class="section-desc">Food allergy anxiety is valid, common, and very treatable. Here's how caregivers can get the most from the kit.</p>
     </div>
     <ul class="tips-list fade-in">
       <li>Practice activities together daily — not just during crises. Prevention is easier than intervention.</li>
@@ -464,84 +470,72 @@
       <li>Celebrate brave moments: asking about ingredients, trying a new safe food, attending a party with the kit.</li>
       <li>Model calm emotional regulation around food allergy worry — children mirror adult anxiety.</li>
       <li>Make the kit accessible every day. Daily use normalizes coping tools and builds lifelong skills.</li>
-      <li>Reach out to Dr. Lombard to access free instructional videos and audio guidance for all 9 activities.</li>
+      <li>Reach out to schedule a session to access free instructional videos and audio guidance for all 9 activities.</li>
     </ul>
-    <div style="margin-top:1.75rem; background:var(--white); border-radius:14px; padding:1.25rem 1.5rem; font-size:0.95rem; color:var(--ink-soft); border-left:4px solid var(--teal);" class="fade-in">
-      <strong style="color:var(--teal-dark);">When to seek additional support:</strong> If your child's anxiety interferes with attending school or social events, severely impacts sleep, or restricts eating beyond allergen avoidance, consider consulting a pediatric psychologist.
+    <div class="when-note fade-in">
+      <strong>When to seek additional support:</strong> If your child's anxiety interferes with attending school or social events, severely impacts sleep, or restricts eating beyond allergen avoidance, consider consulting a pediatric psychologist. I'd be glad to help — reach out to schedule a conversation.
     </div>
   </div>
 </section>
 
 <!-- FOR PROVIDERS -->
-<section class="section providers">
-  <div class="section-inner">
-    <div class="providers-inner fade-in">
-      <div>
-        <span class="section-label">For Healthcare Providers</span>
-        <h2>A Clinically Designed Toolkit for Your Patients</h2>
-        <p>Children living with food allergies face real and ongoing psychological stress — fear of exposure, social isolation, and anticipatory anxiety around every meal. Comfort Kits equip them with 9 evidence-based mind-body activities they can use independently, at any age, in any setting. By involving the caregiver, confidence and emotional co-regulation is encouraged.</p>
-        <p style="margin-top:1rem;">Recommend to patients managing pre/post-reaction anxiety, fear of accidental exposure, high anxiety at mealtimes, coping during OIT dosing and oral food challenges, sleep difficulties, and social isolation.</p>
-      </div>
-      <div class="provider-contact">
-        <p>Learn more or refer patients:</p>
-        <a href="http://www.lisalombardphd.com" target="_blank" rel="noopener">www.lisalombardphd.com</a>
-        <br><br>
-        <p>Contact Dr. Lombard:</p>
-        <a href="mailto:lisalombardphd@gmail.com">lisalombardphd@gmail.com</a>
-      </div>
+<div class="container">
+  <div class="providers-section">
+    <div class="fade-in">
+      <span class="section-label">For Healthcare Providers</span>
+      <h2 class="section-title">A Clinically Designed Toolkit for Your Patients</h2>
+      <p class="section-desc">Children living with food allergies face real and ongoing psychological stress — fear of exposure, social isolation, and anticipatory anxiety around every meal. These kits equip them with 9 evidence-based mind-body activities they can use independently, at any age, in any setting.</p>
+      <p class="section-desc" style="margin-top:12px;">Recommend to patients managing pre/post-reaction anxiety, fear of accidental exposure, high anxiety at mealtimes, coping during OIT dosing and oral food challenges, sleep difficulties, and social isolation. To refer a patient or learn more, contact Dr. Lombard at <a href="mailto:lisalombardphd@gmail.com" style="color:var(--teal-dark); text-decoration:none;">lisalombardphd@gmail.com</a> or <a href="tel:7086550063" style="color:var(--teal-dark); text-decoration:none;">708-655-0063</a>.</p>
     </div>
   </div>
-</section>
+</div>
 
 <!-- CTA -->
 <section class="cta-section fade-in">
-  <div style="max-width:640px; margin:0 auto;">
-    <h2>Support Children Facing Food Allergy Anxiety</h2>
-    <p>Comfort Kits for Children is a 501(c)(3) nonprofit. Your donation helps provide these evidence-based kits to children who need them most.</p>
-    <div class="cta-buttons">
-      <a href="https://donorbox.org/2025-projects-for-comfort-kits-for-children" class="btn btn-coral" target="_blank" rel="noopener">Donate Now</a>
-      <a href="get-involved.html" class="btn btn-teal">Get Involved</a>
-      <a href="contact-us.html" class="btn btn-outline">Contact Us</a>
-    </div>
+  <h2>Ready to support your child?</h2>
+  <p>Schedule an appointment with Dr. Lombard to discuss whether Comfort Kits for Food Allergies is a good fit for your family.</p>
+  <p class="cta-partnership">
+    This program is offered through Dr. Lombard's private practice, in partnership with
+    <a href="https://www.comfortkitsforchildren.org" target="_blank">Comfort Kits for Children®</a>.
+  </p>
+  <div class="cta-contacts">
+    <a href="https://www.lisalombardphd.com/contact" class="cta-item">
+      <div class="cta-item-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+      </div>
+      <div>
+        <span class="cta-item-label">Schedule</span>
+        <span class="cta-item-value">Request an Appointment</span>
+      </div>
+    </a>
+    <a href="tel:7086550063" class="cta-item">
+      <div class="cta-item-icon">
+        <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+      </div>
+      <div>
+        <span class="cta-item-label">Call or text</span>
+        <span class="cta-item-value">708-655-0063</span>
+      </div>
+    </a>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <p>Comfort Kits for Children® &nbsp;|&nbsp; Chicago, IL &nbsp;|&nbsp; 501(c)(3) Nonprofit</p>
-  <p><a href="index.html">Home</a> &nbsp;·&nbsp; <a href="get-involved.html">Donate</a> &nbsp;·&nbsp; <a href="contact-us.html">Contact</a></p>
-</footer>
-
 <script>
-  // Weglot
   Weglot.initialize({ api_key: 'wg_456f4b3b6c688ded23c76c2f3e5e72139' });
 
-  // Scroll fade-in — only activate after confirming JS + IntersectionObserver work
   if ('IntersectionObserver' in window) {
-    // Mark elements as ready to animate (starts them invisible)
     document.querySelectorAll('.fade-in').forEach(el => el.classList.add('js-ready'));
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    // Fallback: if nothing has become visible after 1.5s (iframe not firing),
-    // make everything visible
     setTimeout(() => {
-      document.querySelectorAll('.fade-in.js-ready:not(.visible)').forEach(el => {
-        el.classList.add('visible');
-      });
+      document.querySelectorAll('.fade-in.js-ready:not(.visible)').forEach(el => el.classList.add('visible'));
     }, 1500);
   }
 
-  // Send height to parent for iframe auto-sizing
   function sendHeight() {
     window.parent.postMessage({ type: 'setHeight', height: document.body.scrollHeight }, '*');
   }
