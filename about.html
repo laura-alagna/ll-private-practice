@@ -23,10 +23,7 @@
       --blue-dark: #4d6f82;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body {
-      max-width: 100%;
-      overflow-x: hidden;
-    }
+    html, body { max-width: 100%; overflow-x: hidden; }
 
     body {
       font-family: 'Jost', sans-serif;
@@ -85,7 +82,6 @@
       padding: 64px 0 48px;
       align-items: start;
     }
-    .bio-aside {}
     .bio-card {
       background: #fff;
       border: 1px solid var(--border);
@@ -95,21 +91,20 @@
       margin-bottom: 20px;
     }
     .bio-card-header {
+      position: relative;
       background: var(--sage-dark);
-      padding: 28px 24px;
-      text-align: center;
     }
-    .bio-initials {
-      width: 72px; height: 72px;
-      background: rgba(255,255,255,0.18);
-      border-radius: 50%;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      color: #fff;
-      font-weight: 300;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 14px;
-      letter-spacing: 0.05em;
+    /* Photo — shows if image loads */
+    .bio-card-header img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+    /* Name block always visible at bottom of header */
+    .bio-card-name-block {
+      background: var(--sage-dark);
+      padding: 14px 24px 18px;
+      text-align: center;
     }
     .bio-card-name {
       font-family: 'Cormorant Garamond', serif;
@@ -125,7 +120,6 @@
       text-transform: uppercase;
     }
     .bio-card-body { padding: 20px 22px; }
-
     .bio-detail {
       display: flex;
       align-items: flex-start;
@@ -139,6 +133,7 @@
     .bio-detail:last-child { border-bottom: none; }
     .bio-detail svg { width: 16px; height: 16px; fill: var(--sage); flex-shrink: 0; margin-top: 2px; }
     .bio-detail strong { color: var(--charcoal); font-weight: 400; display: block; font-size: 0.8rem; }
+
     /* MAIN BIO TEXT */
     .bio-content h2 {
       font-family: 'Cormorant Garamond', serif;
@@ -156,35 +151,7 @@
     }
     .bio-content p:last-child { margin-bottom: 0; }
 
-    /* PHOTO PLACEHOLDER */
-    .bio-photo-placeholder {
-      background: var(--sage-light);
-      padding: 32px 24px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-    .bio-photo-icon {
-      width: 80px; height: 80px;
-      background: rgba(90,115,96,0.2);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .bio-photo-icon svg { width: 40px; height: 40px; fill: var(--sage-dark); }
-    .bio-photo-label {
-      font-size: 0.72rem;
-      color: var(--sage-dark);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-    .bio-card-name-block {
-      background: var(--sage-dark);
-      padding: 14px 24px 18px;
-      text-align: center;
-    }
-
-    /* HIGHLIGHT CARDS — replaces timeline */
+    /* HIGHLIGHT CARDS */
     .highlights-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -236,11 +203,7 @@
       color: var(--charcoal);
       margin-bottom: 10px;
     }
-    .highlight-box p {
-      font-size: 0.9rem;
-      color: var(--mid);
-      line-height: 1.85;
-    }
+    .highlight-box p { font-size: 0.9rem; color: var(--mid); line-height: 1.85; }
     .highlight-box a {
       display: inline-block;
       margin-top: 14px;
@@ -256,7 +219,7 @@
     }
     .highlight-box a:hover { border-color: var(--blue-dark); }
 
-    /* CTA — matches home page */
+    /* CTA */
     .cta-band {
       background: var(--warm-white);
       border: 1px solid var(--border);
@@ -281,12 +244,7 @@
       margin-right: auto;
       line-height: 1.8;
     }
-    .cta-contacts {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+    .cta-contacts { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
     .cta-item {
       display: flex;
       align-items: center;
@@ -329,11 +287,41 @@
     .section-title { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; font-weight: 400; color: var(--charcoal); margin-bottom: 28px; }
 
     @media (max-width: 600px) {
-      .bio-grid { grid-template-columns: 1fr; gap: 32px; }
-      .page-header { padding: 40px 24px 36px; }
-      .highlights-grid { grid-template-columns: 1fr; }
-      .cta-contacts { flex-direction: column; align-items: center; }
-      .cta-item { width: 100%; max-width: 320px; }
+      /* Header */
+      .page-header { padding: 32px 20px 28px; }
+      .page-header h1 { font-size: clamp(1.8rem, 7vw, 2.2rem); margin-bottom: 10px; }
+      .page-header p { font-size: 0.88rem; }
+
+      /* Bio grid */
+      .bio-grid { grid-template-columns: 1fr; gap: 24px; padding: 32px 0 32px; }
+      .container { padding: 0 20px; }
+
+      /* Bio content */
+      .bio-content h2 { font-size: 1.5rem; margin-bottom: 14px; }
+      .bio-content p { font-size: 0.88rem; margin-bottom: 14px; }
+
+      /* Highlights */
+      .highlights-grid { grid-template-columns: 1fr; gap: 12px; margin-bottom: 28px; }
+      .highlight-card { padding: 18px 16px; }
+      .highlight-card h3 { font-size: 1rem; }
+      .highlight-card p { font-size: 0.82rem; }
+      .section-title { font-size: 1.5rem; margin-bottom: 20px; }
+
+      /* Comfort kits box */
+      .highlight-box { padding: 20px 18px; margin-bottom: 32px; }
+      .highlight-box h3 { font-size: 1.2rem; }
+      .highlight-box p { font-size: 0.85rem; }
+
+      /* CTA */
+      .cta-band { padding: 28px 16px 32px; margin-bottom: 40px; border-radius: 12px; }
+      .cta-band h2 { font-size: 1.3rem; margin-bottom: 8px; line-height: 1.3; }
+      .cta-band > p { font-size: 0.85rem; margin-bottom: 20px; }
+      .cta-contacts { flex-direction: column; align-items: center; gap: 10px; }
+      .cta-item { width: 100%; max-width: 280px; padding: 12px 16px; justify-content: flex-start; }
+      .cta-item-icon { width: 32px; height: 32px; flex-shrink: 0; }
+      .cta-item-icon svg { width: 15px; height: 15px; }
+      .cta-item-label { font-size: 0.62rem; }
+      .cta-item-value { font-size: 0.95rem; white-space: nowrap; }
     }
   </style>
 </head>
@@ -353,10 +341,10 @@
     <aside class="bio-aside">
       <div class="bio-card">
         <div class="bio-card-header">
-          <img src="images/lisa-lombard-headshot.jpg" alt="Lisa Lombard, PhD" style="width:100%; display:block;" />
-          <div class="bio-photo-placeholder">
-            <div class="bio-photo-icon">
-              <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+          <!-- Replace src with your hosted headshot URL -->
+          <img src="images/lisa-lombard-headshot.jpg"
+               alt="Lisa Lombard, PhD"
+               onerror="this.style.display='none'" />
           <div class="bio-card-name-block">
             <p class="bio-card-name">Lisa Lombard, PhD</p>
             <p class="bio-card-title">Licensed Clinical Psychologist</p>
@@ -486,6 +474,7 @@
   </div>
 
 </main>
+
 <script>
   function sendHeight() {
     window.parent.postMessage({ type: 'setHeight', height: document.body.scrollHeight }, '*');
