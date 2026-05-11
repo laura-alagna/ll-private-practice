@@ -371,13 +371,48 @@
     }
 
     @media (max-width: 600px) {
-      .pillars { grid-template-columns: 1fr; }
-      .hero-inner { grid-template-columns: 1fr; gap: 36px; }
-      .hero-photo { max-width: 280px; margin: 0 auto; }
-      .approach-strip { padding: 32px 28px; }
-      .hero { padding: 40px 24px 32px; }
-      .cta-contacts { flex-direction: column; align-items: center; }
-      .cta-item { width: 100%; max-width: 320px; }
+      /* Hero */
+      .hero { padding: 28px 20px 24px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 24px; }
+      .hero-label { margin-bottom: 12px; }
+      .hero h1 { font-size: clamp(1.8rem, 7vw, 2.4rem); margin-bottom: 14px; }
+      .hero-sub { font-size: 0.9rem; margin-bottom: 20px; }
+      .hero-photo { max-width: 200px; margin: 0 auto; }
+      .photo-caption { font-size: 0.72rem; margin-top: 8px; }
+      .btn-group { gap: 10px; }
+      .btn-primary, .btn-ghost { padding: 11px 22px; font-size: 0.78rem; }
+
+      /* Container */
+      .container { padding: 0 20px; }
+      .container[style] { padding-top: 36px !important; }
+
+      /* Section titles */
+      .section-title { font-size: 1.6rem; margin-bottom: 24px; }
+
+      /* Pillars */
+      .pillars { grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 36px; }
+      .pillar { padding: 20px 16px; }
+      .pillar-icon { width: 40px; height: 40px; margin-bottom: 12px; }
+      .pillar-icon svg { width: 18px; height: 18px; }
+      .pillar h3 { font-size: 1rem; margin-bottom: 6px; }
+      .pillar p { font-size: 0.8rem; line-height: 1.6; }
+
+      /* Window banner */
+      .window-banner { height: 180px; margin-bottom: 20px; border-radius: 10px; }
+
+      /* Approach strip */
+      .approach-strip { padding: 28px 22px; margin-bottom: 36px; border-radius: 10px; }
+      .approach-strip h2 { font-size: 1.5rem; margin-bottom: 12px; }
+      .approach-strip p { font-size: 0.88rem; line-height: 1.75; }
+
+      /* CTA */
+      .cta-band { padding: 32px 20px 36px; margin-bottom: 40px; border-radius: 12px; }
+      .cta-band h2 { font-size: 1.6rem; margin-bottom: 10px; }
+      .cta-band > p { font-size: 0.88rem; margin-bottom: 24px; }
+      .cta-contacts { flex-direction: column; align-items: center; gap: 10px; }
+      .cta-item { width: 100%; max-width: 300px; padding: 14px 20px; justify-content: center; text-align: left; }
+      .cta-item-icon { width: 34px; height: 34px; }
+      .cta-item-value { font-size: 1.05rem; }
     }
   </style>
 </head>
