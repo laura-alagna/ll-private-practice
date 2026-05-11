@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About | Lisa Lombard PhD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --cream: #faf7f4;
+      --warm-white: #f5f0eb;
+      --sage: #8a9e8c;
+      --sage-light: #c4d3c5;
+      --sage-dark: #5a7360;
+      --taupe: #b8a898;
+      --taupe-light: #e8e0d8;
+      --charcoal: #2c2c2c;
+      --mid: #5a5550;
+      --light-text: #8a8480;
+      --border: #ddd5ca;
+      --blue: #6b8fa3;
+      --blue-light: #dde8ee;
+      --blue-dark: #4d6f82;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .page-header {
+      padding: 56px 40px 48px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(138,158,140,0.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sage-dark);
+      margin-bottom: 10px;
+    }
+    .page-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 400;
+      color: var(--charcoal);
+      letter-spacing: 0.01em;
+      margin-bottom: 16px;
+    }
+    .page-header p {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 0.95rem;
+      color: var(--mid);
+      line-height: 1.85;
+    }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 0 32px; }
+
+    /* BIO SECTION */
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 56px;
+      padding: 64px 0 48px;
+      align-items: start;
+    }
+    .bio-aside {}
+    .bio-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
+    }
+    .bio-card-header {
+      background: var(--sage-dark);
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .bio-initials {
+      width: 72px; height: 72px;
+      background: rgba(255,255,255,0.18);
+      border-radius: 50%;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      color: #fff;
+      font-weight: 300;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 14px;
+      letter-spacing: 0.05em;
+    }
+    .bio-card-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .bio-card-title {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .bio-card-body { padding: 20px 22px; }
+
+    .bio-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--mid);
+      line-height: 1.5;
+    }
+    .bio-detail:last-child { border-bottom: none; }
+    .bio-detail svg { width: 16px; height: 16px; fill: var(--sage); flex-shrink: 0; margin-top: 2px; }
+    .bio-detail strong { color: var(--charcoal); font-weight: 400; display: block; font-size: 0.8rem; }
+    /* MAIN BIO TEXT */
+    .bio-content h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+    .bio-content p {
+      font-size: 0.93rem;
+      color: var(--mid);
+      line-height: 1.9;
+      margin-bottom: 18px;
+    }
+    .bio-content p:last-child { margin-bottom: 0; }
+
+    /* PHOTO PLACEHOLDER */
+    .bio-photo-placeholder {
+      background: var(--sage-light);
+      padding: 32px 24px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .bio-photo-icon {
+      width: 80px; height: 80px;
+      background: rgba(90,115,96,0.2);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .bio-photo-icon svg { width: 40px; height: 40px; fill: var(--sage-dark); }
+    .bio-photo-label {
+      font-size: 0.72rem;
+      color: var(--sage-dark);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .bio-card-name-block {
+      background: var(--sage-dark);
+      padding: 14px 24px 18px;
+      text-align: center;
+    }
+
+    /* HIGHLIGHT CARDS — replaces timeline */
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .highlight-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 22px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .highlight-card-icon {
+      width: 40px; height: 40px;
+      background: var(--blue-light);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px;
+    }
+    .highlight-card-icon svg { width: 20px; height: 20px; fill: var(--blue-dark); }
+    .highlight-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .highlight-card p {
+      font-size: 0.84rem;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+
+    /* COMFORT KITS */
+    .highlight-box {
+      background: var(--blue-light);
+      border: 1px solid #c2d6e2;
+      border-left: 4px solid var(--blue);
+      border-radius: 0 12px 12px 0;
+      padding: 28px 28px;
+      margin-bottom: 56px;
+    }
+    .highlight-box h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+    }
+    .highlight-box p {
+      font-size: 0.9rem;
+      color: var(--mid);
+      line-height: 1.85;
+    }
+    .highlight-box a {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--blue-dark);
+      text-decoration: none;
+      border-bottom: 1px solid var(--blue);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .highlight-box a:hover { border-color: var(--blue-dark); }
+
+    /* CTA — matches home page */
+    .cta-band {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      text-align: center;
+      padding: 52px 40px 56px;
+      margin-bottom: 72px;
+    }
+    .cta-band h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+    .cta-band > p {
+      font-size: 0.95rem;
+      color: var(--mid);
+      margin-bottom: 36px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8;
+    }
+    .cta-contacts {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .cta-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 28px;
+      text-decoration: none;
+      transition: all 0.2s;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .cta-item:hover { border-color: var(--sage); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.09); }
+    .cta-item-icon {
+      width: 40px; height: 40px;
+      background: var(--sage-dark);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .cta-item-icon svg { width: 18px; height: 18px; fill: #fff; }
+    .cta-item-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--light-text);
+      display: block;
+      margin-bottom: 2px;
+    }
+    .cta-item-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      display: block;
+    }
+
+    hr.divider { border: none; border-top: 1px solid var(--border); margin: 16px 0 48px; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; font-weight: 400; color: var(--charcoal); margin-bottom: 28px; }
+
+    @media (max-width: 600px) {
+      .bio-grid { grid-template-columns: 1fr; gap: 32px; }
+      .page-header { padding: 40px 24px 36px; }
+      .highlights-grid { grid-template-columns: 1fr; }
+      .cta-contacts { flex-direction: column; align-items: center; }
+      .cta-item { width: 100%; max-width: 320px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="container">
+    <p class="section-label">About</p>
+    <h1>Meet Dr. Lisa Lombard</h1>
+    <p>Clinical psychologist, researcher, and advocate for children's mental health — committed to helping people of all ages live with more ease, connection, and resilience.</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="bio-grid">
+    <aside class="bio-aside">
+      <div class="bio-card">
+        <div class="bio-card-header">
+          <!-- Replace this placeholder with <img src="lisa-lombard.avif" alt="Lisa Lombard, PhD" style="width:100%; display:block;" /> -->
+          <div class="bio-photo-placeholder">
+            <div class="bio-photo-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+            </div>
+            <span class="bio-photo-label">Photo coming soon</span>
+          </div>
+          <div class="bio-card-name-block">
+            <p class="bio-card-name">Lisa Lombard, PhD</p>
+            <p class="bio-card-title">Licensed Clinical Psychologist</p>
+          </div>
+        </div>
+        <div class="bio-card-body">
+          <div class="bio-detail">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <div>
+              <strong>Office</strong>
+              <a href="https://maps.app.goo.gl/WSr4rSW4zPYfkXDB9" target="_blank" style="color:inherit; text-decoration:none;">7609 Washington Blvd.<br>River Forest, IL 60305</a>
+            </div>
+          </div>
+          <div class="bio-detail">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/></svg>
+            <div>
+              <strong>Email</strong>
+              lisalombardphd@gmail.com
+            </div>
+          </div>
+          <div class="bio-detail">
+            <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+            <div>
+              <strong>Phone</strong>
+              708-655-0063
+            </div>
+          </div>
+          <div class="bio-detail">
+            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>
+            <div>
+              <strong>Telepsychology</strong>
+              PSYPACT-Authorized — 42 states
+            </div>
+          </div>
+          <div class="bio-detail">
+            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+            <div>
+              <strong>License</strong>
+              IL 071.007229
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="bio-content">
+      <h2>Thirty years of listening, learning, and helping people heal.</h2>
+      <p>I became a psychologist because I believe that people are more resilient than they often feel in their hardest moments. My job is to help you find that resilience — and to give you the skills to draw on it long after we stop meeting.</p>
+      <p>My practice is grounded in a biopsychosocial perspective, which just means I look at the whole picture: your physical health, your emotional life, your relationships, and the experiences that shaped you. I work with adults, children, and families facing anxiety, chronic pain, grief, stress-related health concerns, and difficult life transitions.</p>
+      <p>I'm particularly passionate about mind-body approaches — especially clinical hypnosis and mindfulness — because the research on these tools is compelling, and I've seen firsthand how much they can help. Whether you're dealing with something specific or just feeling stuck, I'd love to talk.</p>
+      <p>Outside of my private practice, I've spent years in academic research at Northwestern University studying the psychosocial impacts of food allergy, working in school settings, and training the next generation of clinicians. That breadth of experience shapes how I think about every person who walks through my door.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <p class="section-label">Background &amp; Experience</p>
+  <h2 class="section-title">A Few Things Worth Knowing</h2>
+
+  <div class="highlights-grid">
+    <div class="highlight-card">
+      <div class="highlight-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 12.08L5.08 11 12 7.08 18.92 11 12 15.08z"/></svg>
+      </div>
+      <h3>PhD, University of Chicago</h3>
+      <p>I completed both my undergraduate and doctoral training at the University of Chicago, earning a PhD in Psychology and Human Development.</p>
+    </div>
+    <div class="highlight-card">
+      <div class="highlight-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/></svg>
+      </div>
+      <h3>10+ Years in Schools</h3>
+      <p>I spent over a decade delivering therapy directly within a preschool and elementary school setting — working with children, guiding parents, supervising trainees, and consulting on trauma and SEL.</p>
+    </div>
+    <div class="highlight-card">
+      <div class="highlight-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M19.5 3.5L18 2l-1.5 1.5L15 2l-1.5 1.5L12 2l-1.5 1.5L9 2 7.5 3.5 6 2 4.5 3.5 3 2v20l1.5-1.5L6 22l1.5-1.5L9 22l1.5-1.5L12 22l1.5-1.5L15 22l1.5-1.5L18 22l1.5-1.5L21 22V2l-1.5 1.5zM19 19.09H5V4.91h14v14.18zM6 15h12v2H6zm0-4h12v2H6zm0-4h12v2H6z"/></svg>
+      </div>
+      <h3>Research at Northwestern</h3>
+      <p>As a former Research Assistant Professor at Northwestern University's Feinberg School of Medicine, I studied the psychosocial impact of food allergy and developed self-directed coping tools — leading to multiple peer-reviewed publications.</p>
+    </div>
+    <div class="highlight-card">
+      <div class="highlight-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18A9 9 0 0 0 12 3zm-1 13v-4H8l4-7v4h3l-4 7z"/></svg>
+      </div>
+      <h3>ASCH Approved Consultant in Hypnosis</h3>
+      <p>I hold the highest credential offered by the American Society of Clinical Hypnosis and have integrated evidence-based hypnotherapy into my clinical work for over two decades.</p>
+    </div>
+    <div class="highlight-card">
+      <div class="highlight-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+      </div>
+      <h3>Leadership in the Field</h3>
+      <p>I currently serve as President of the Board of the National Pediatric Hypnosis Training Institute (NPHTI) and as President-Elect of APA Division 30. I was formerly President of the Chicago Society of Clinical Hypnosis.</p>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <h3>Comfort Kits for Children®</h3>
+    <p>This initiative began with children impacted by the war in Ukraine and has since expanded to serve under-resourced schools and communities across Chicagoland who have experienced gun violence and other traumatic events. Each kit is paired with expert written and webinar guidance from behavioral health professionals.</p>
+    <a href="https://www.comfortkitsforchildren.org" target="_blank">Learn more at comfortkitsforchildren.org →</a>
+  </div>
+
+  <div class="cta-band">
+    <h2>Interested in working together?</h2>
+    <p>Reach out by phone or email — I respond to all inquiries personally and am happy to answer questions before you schedule.</p>
+    <div class="cta-contacts">
+      <a href="tel:7086550063" class="cta-item">
+        <div class="cta-item-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+        </div>
+        <div>
+          <span class="cta-item-label">Call or text</span>
+          <span class="cta-item-value">708-655-0063</span>
+        </div>
+      </a>
+      <a href="mailto:lisalombardphd@gmail.com" class="cta-item">
+        <div class="cta-item-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/></svg>
+        </div>
+        <div>
+          <span class="cta-item-label">Email</span>
+          <span class="cta-item-value">lisalombardphd@gmail.com</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</main>
+<script>
+  function sendHeight() {
+    window.parent.postMessage({ type: 'setHeight', height: document.body.scrollHeight }, '*');
+  }
+  window.addEventListener('load', sendHeight);
+  window.addEventListener('resize', sendHeight);
+</script>
+</body>
+</html>

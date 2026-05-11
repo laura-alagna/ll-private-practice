@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Media &amp; Resources | Lisa Lombard PhD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --cream:#faf7f4;--warm-white:#f5f0eb;--sage:#8a9e8c;--sage-light:#c4d3c5;--sage-dark:#5a7360;
+      --blue:#6b8fa3;--blue-light:#dde8ee;--blue-dark:#4d6f82;
+      --charcoal:#2c2c2c;--mid:#5a5550;--light-text:#8a8480;--border:#ddd5ca;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html,body{max-width:100%;overflow-x:hidden;}
+    body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--charcoal);font-weight:300;line-height:1.7;}
+
+    .page-header{padding:56px 40px 48px;text-align:center;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+    .page-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(138,158,140,0.10) 0%,transparent 70%);pointer-events:none;}
+    .section-label{font-size:0.7rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:10px;display:block;}
+    .page-header h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,3rem);font-weight:400;color:var(--charcoal);margin-bottom:14px;}
+    .page-header p{max-width:560px;margin:0 auto;font-size:0.95rem;color:var(--mid);line-height:1.85;}
+    .container{max-width:900px;margin:0 auto;padding:0 32px;}
+    .section{padding:56px 0 48px;}
+    .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.7rem,3.5vw,2.1rem);font-weight:400;color:var(--charcoal);margin-bottom:8px;}
+    .section-intro{font-size:0.92rem;color:var(--mid);line-height:1.85;margin-bottom:32px;max-width:640px;}
+    hr.divider{border:none;border-top:1px solid var(--border);margin:8px 0 56px;}
+
+    /* MEDIA CARDS */
+    .media-grid{display:grid;gap:14px;}
+    .media-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:22px 24px;box-shadow:0 2px 12px rgba(0,0,0,0.04);display:grid;grid-template-columns:48px 1fr auto;gap:16px;align-items:center;text-decoration:none;color:inherit;transition:transform 0.2s,box-shadow 0.2s;}
+    .media-card:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,0.08);}
+    .media-icon{width:48px;height:48px;background:var(--sage-light);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .media-icon svg{width:20px;height:20px;fill:var(--sage-dark);}
+    .media-type{font-size:0.68rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:3px;}
+    .media-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;color:var(--charcoal);margin-bottom:3px;line-height:1.3;}
+    .media-desc{font-size:0.83rem;color:var(--mid);line-height:1.55;}
+    .media-arrow{flex-shrink:0;}
+    .media-arrow svg{width:18px;height:18px;fill:var(--sage);}
+
+    .media-note{margin-top:20px;background:var(--warm-white);border:1px solid var(--border);border-radius:10px;padding:16px 20px;font-size:0.87rem;color:var(--mid);line-height:1.8;}
+    .media-note a{color:var(--sage-dark);text-decoration:none;}
+    .media-note a:hover{text-decoration:underline;}
+
+    /* ARTICLES */
+    .articles-grid{display:grid;gap:14px;}
+    .article-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,0.04);text-decoration:none;color:inherit;display:block;transition:transform 0.2s,box-shadow 0.2s;}
+    .article-card:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,0.08);}
+    .article-tag{display:inline-block;background:var(--blue-light);color:var(--blue-dark);font-size:0.68rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:4px 10px;border-radius:100px;margin-bottom:10px;}
+    .article-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;color:var(--charcoal);margin-bottom:5px;line-height:1.35;}
+    .article-meta{font-size:0.78rem;color:var(--light-text);margin-bottom:6px;letter-spacing:0.03em;line-height:1.5;}
+    .article-desc{font-size:0.87rem;color:var(--mid);line-height:1.7;}
+
+    .event-banner {
+      width: 100%;
+      height: 260px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 0;
+      position: relative;
+    }
+    .event-banner img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 30%;
+      display: block;
+    }
+    .event-banner-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.55));
+      padding: 24px 20px 14px;
+      font-size: 0.78rem; color: rgba(255,255,255,0.85);
+      letter-spacing: 0.04em;
+    }
+      .page-header{padding:40px 20px 36px;}
+      .container{padding:0 20px;}
+      .media-card{grid-template-columns:40px 1fr;}
+      .media-arrow{display:none;}
+    }
+  </style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="container">
+    <span class="section-label">Media &amp; Resources</span>
+    <h1>In the Press &amp; On the Page</h1>
+    <p>Podcast appearances, expert interviews, and peer-reviewed research — a selection of Dr. Lombard's work beyond the clinic.</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- MEDIA -->
+  <div class="section">
+    <span class="section-label">Podcasts &amp; Interviews</span>
+    <h2 class="section-title">Media Appearances</h2>
+    <p class="section-intro">Dr. Lombard is a frequent media resource on topics including pediatric hypnosis, grief and trauma, food allergy coping, and children's mental health.</p>
+
+    <div class="media-grid">
+
+      <a class="media-card" href="https://www.buzzsprout.com/2371319/episodes/18473041" target="_blank">
+        <div class="media-icon"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18A9 9 0 0 0 12 3zm-1 13v-4H8l4-7v4h3l-4 7z"/></svg></div>
+        <div>
+          <p class="media-type">Podcast</p>
+          <p class="media-title">Don't Feed the Fear Podcast</p>
+          <p class="media-desc">Dr. Lombard discusses food allergy anxiety and mind-body coping tools for children and families.</p>
+        </div>
+        <div class="media-arrow"><svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></div>
+      </a>
+
+      <a class="media-card" href="https://learnskin.libsyn.com/episode-45-hypnotherapy-what-it-is-how-it-works-and-its-use-in-dermatology" target="_blank">
+        <div class="media-icon"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18A9 9 0 0 0 12 3zm-1 13v-4H8l4-7v4h3l-4 7z"/></svg></div>
+        <div>
+          <p class="media-type">Podcast</p>
+          <p class="media-title">Learn Skin — Hypnotherapy in Dermatology</p>
+          <p class="media-desc">What clinical hypnosis is, how it works, and its evidence-based applications in dermatology.</p>
+        </div>
+        <div class="media-arrow"><svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></div>
+      </a>
+
+      <a class="media-card" href="https://nationaleczema.org/blog/podcast-mental-health-is-health/" target="_blank">
+        <div class="media-icon"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18A9 9 0 0 0 12 3zm-1 13v-4H8l4-7v4h3l-4 7z"/></svg></div>
+        <div>
+          <p class="media-type">Podcast</p>
+          <p class="media-title">Eczema Out Loud — Mental Health and Eczema</p>
+          <p class="media-desc">National Eczema Association podcast on the psychological dimension of living with atopic dermatitis.</p>
+        </div>
+        <div class="media-arrow"><svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></div>
+      </a>
+
+      <a class="media-card" href="https://youtu.be/MTEXlJoFgFg" target="_blank">
+        <div class="media-icon"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18A9 9 0 0 0 12 3zm-1 13v-4H8l4-7v4h3l-4 7z"/></svg></div>
+        <div>
+          <p class="media-type">Podcast</p>
+          <p class="media-title">Inhale Life — Managing Mental Health and Asthma</p>
+          <p class="media-desc">Mind-body approaches to managing the psychological burden of living with asthma.</p>
+        </div>
+        <div class="media-arrow"><svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></div>
+      </a>
+
+      <a class="media-card" href="https://www.naaf.org/watch-learn/mental-health-and-living-with-alopecia-areata/" target="_blank">
+        <div class="media-icon"><svg viewBox="0 0 24 24"><path d="M21 6.5l-4-4-10 10V16h3.5L21 6.5zm-14 8l-1-1 9.5-9.5 1 1L7 14.5zM3 18h18v2H3z"/></svg></div>
+        <div>
+          <p class="media-type">Webinar</p>
+          <p class="media-title">NAAF — Mental Health and Living with Alopecia Areata</p>
+          <p class="media-desc">National Alopecia Areata Foundation webinar on psychological well-being and coping with hair loss conditions.</p>
+        </div>
+        <div class="media-arrow"><svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></div>
+      </a>
+
+      <a class="media-card" href="https://www.instagram.com/tv/Cr_nAbRNFmG/?igshid=NTc4MTIwNjQ2YQ==" target="_blank">
+        <div class="media-icon"><svg viewBox="0 0 24 24"><path d="M21 6.5l-4-4-10 10V16h3.5L21 6.5zm-14 8l-1-1 9.5-9.5 1 1L7 14.5zM3 18h18v2H3z"/></svg></div>
+        <div>
+          <p class="media-type">Instagram Live</p>
+          <p class="media-title">National Eczema Association — Instagram Live</p>
+          <p class="media-desc">Live conversation with the National Eczema Association on mind-body tools and atopic conditions.</p>
+        </div>
+        <div class="media-arrow"><svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></div>
+      </a>
+
+    </div>
+
+    <div class="media-note">
+      <strong>Media inquiries:</strong> If you're a journalist or podcast host interested in having Dr. Lombard as a guest or expert resource, please reach out at <a href="mailto:lisalombardphd@gmail.com">lisalombardphd@gmail.com</a>.
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Event image — replace src with hosted URL once uploaded to GitHub -->
+  <div class="event-banner">
+    <img src="../images/thumbnail_AD_and_AA_Continuing_Ed_Boston_Experience.avif"
+         alt="Dr. Lombard at the Atopic Dermatitis and Alopecia Areata Continuing Education panel, Boston"
+         onerror="this.parentElement.style.display='none'" />
+    <div class="event-banner-caption">AD &amp; AA Continuing Education Panel · Boston University</div>
+  </div>
+
+  <!-- ARTICLES -->
+  <div class="section" style="padding-top:40px;">
+    <span class="section-label">Peer-Reviewed Publications</span>
+    <h2 class="section-title">Articles &amp; Research</h2>
+    <p class="section-intro">Dr. Lombard's research spans pediatric hypnosis, atopic conditions, food allergy, and children's mental health.</p>
+
+    <div class="articles-grid">
+
+      <a class="article-card" href="https://dx.doi.org/10.1016/B978-0-323-96018-2.00054-7" target="_blank">
+        <span class="article-tag">Book Chapter</span>
+        <p class="article-title">Medical Trauma</p>
+        <p class="article-meta">Lombard, L., Polloni, L. · Encyclopedia of Food Allergy, vol. 1, pp. 655–665. Elsevier, 2024</p>
+        <p class="article-desc">An overview of medical trauma in the context of food allergy — its presentation, psychological impact, and clinical implications.</p>
+      </a>
+
+      <a class="article-card" href="https://www.apa.org/pubs/books/evidence-based-practice-in-clinical-hypnosis" target="_blank">
+        <span class="article-tag">Book Chapter</span>
+        <p class="article-title">Hypnosis with Children and Adolescents</p>
+        <p class="article-meta">Lombard, L., &amp; Milling, L.S. · Evidence-Based Practice in Clinical Hypnosis. American Psychological Association, 2023</p>
+        <p class="article-desc">A chapter in the APA's landmark volume on evidence-based practice in clinical hypnosis — covering how to adapt hypnotherapeutic approaches for younger populations.</p>
+      </a>
+
+      <a class="article-card" href="https://doi.org/10.1111/all.16204" target="_blank">
+        <span class="article-tag">Allergy</span>
+        <p class="article-title">Global Availability and Update of Psychological Services for Adults, Caregivers, and Children with Food Allergy</p>
+        <p class="article-meta">Knibb R.C., Herbert L.J., Jones C.J., … Lombard L., et al. · Allergy, 2024</p>
+        <p class="article-desc">An international study examining the availability and accessibility of psychological support services for individuals and families living with food allergy.</p>
+      </a>
+
+      <a class="article-card" href="https://doi.org/10.1111/josh.13416" target="_blank">
+        <span class="article-tag">Journal of School Health</span>
+        <p class="article-title">Well-Being of Children and Families in COVID-19 Hotspots in Chicago</p>
+        <p class="article-meta">Kan K., Enaholo O., Kanaley M., … Lombard L., Gupta R. · 2023</p>
+        <p class="article-desc">A multi-site study examining the mental health, social, and academic impacts of the pandemic on Chicago families in disproportionately affected neighborhoods.</p>
+      </a>
+
+      <a class="article-card" href="https://doi.org/10.1111/cch.12994" target="_blank">
+        <span class="article-tag">Child Care Health &amp; Development</span>
+        <p class="article-title">The Impact of COVID-19 on Adolescent Wellness in Chicago</p>
+        <p class="article-meta">Ezeoke O., Kanaley M., Brown D., … Lombard L., Gupta R. · 2022</p>
+        <p class="article-desc">Examines how the pandemic disrupted adolescent development, peer relationships, and access to care in the Chicago metropolitan area.</p>
+      </a>
+
+      <a class="article-card" href="https://doi.org/10.1016/j.jaip.2021.02.039" target="_blank">
+        <span class="article-tag">J Allergy Clin Immunol Pract</span>
+        <p class="article-title">The Psychosocial Burden of Food Allergy Among Adults: A US Population-Based Study</p>
+        <p class="article-meta">Warren C., Dyer A., Lombard L., Dunn-Galvin A., Gupta R. · 2021</p>
+        <p class="article-desc">A national study documenting the anxiety, quality-of-life impact, and psychosocial challenges faced by adults living with food allergy in the United States.</p>
+      </a>
+
+      <a class="article-card" href="https://doi.org/10.1001/jamanetworkopen.2021.11103" target="_blank">
+        <span class="article-tag">JAMA Network Open</span>
+        <p class="article-title">Caregiver Perceptions of Children's Psychological Well-being During the COVID-19 Pandemic</p>
+        <p class="article-meta">Raviv T., Warren C., Washburn J., … Lombard L., Gupta R. · 2021</p>
+        <p class="article-desc">A large-scale study on gaps in children's access to mental health services during the pandemic, and which populations faced the greatest disparities.</p>
+      </a>
+
+      <a class="article-card" href="https://doi.org/10.1016/j.anai.2020.10.013" target="_blank">
+        <span class="article-tag">Annals of Allergy</span>
+        <p class="article-title">Food Allergy-Related Bullying and Associated Peer Dynamics Among Black and White Children</p>
+        <p class="article-meta">Brown D., Negris O., Gupta R., … Lombard L. · 2021</p>
+        <p class="article-desc">Investigates the prevalence and psychosocial consequences of food allergy bullying, with implications for school-based intervention.</p>
+      </a>
+
+      <a class="article-card" href="https://doi.org/10.1016/j.anai.2020.05.007" target="_blank">
+        <span class="article-tag">Annals of Allergy</span>
+        <p class="article-title">Barriers to Food Allergy Management Among Americans with Low Income</p>
+        <p class="article-meta">Bozen A., Zaslavsky J., … Lombard L., Gupta R. · 2020</p>
+        <p class="article-desc">Identifies economic and structural barriers that prevent low-income families from effectively managing food allergy, with policy implications.</p>
+      </a>
+
+      <a class="article-card" href="https://doi.org/10.1016/j.anai.2020.02.003" target="_blank">
+        <span class="article-tag">Annals of Allergy</span>
+        <p class="article-title">Pediatric Allergists' Perspectives on the Psychosocial Challenges of Food Allergy and Factors that Support Coping</p>
+        <p class="article-meta">Bozen A., Kanaley M., Negris O., Gupta R., Lombard L. · Ann Allergy Asthma Immunol, 2020</p>
+        <p class="article-desc">Explores how pediatric allergists perceive and address the psychosocial burden of food allergy, and what factors they identify as supporting patient coping.</p>
+      </a>
+
+      <a class="article-card" href="https://doi.org/10.1080/00029157.2017.1210411" target="_blank">
+        <span class="article-tag">Am J Clin Hypn</span>
+        <p class="article-title">Book Review: Using Hypnosis with Children</p>
+        <p class="article-meta">Lombard, L.S. · American Journal of Clinical Hypnosis, 2017</p>
+        <p class="article-desc">Review of Lynn Lyons' <em>Using Hypnosis with Children: Creating and Delivering Effective Interventions</em> — a clinical resource for practitioners working with younger populations.</p>
+      </a>
+
+    </div>
+  </div>
+
+</main>
+
+<script>
+  function sendHeight(){window.parent.postMessage({type:'setHeight',height:document.body.scrollHeight},'*');}
+  window.addEventListener('load',sendHeight);
+  window.addEventListener('resize',sendHeight);
+</script>
+</body>
+</html>

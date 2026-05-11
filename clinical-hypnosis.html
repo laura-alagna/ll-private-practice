@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clinical Hypnosis IRL | Lisa Lombard PhD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --cream:      #faf7f4;
+      --warm-white: #f5f0eb;
+      --sage:       #8a9e8c;
+      --sage-light: #c4d3c5;
+      --sage-dark:  #5a7360;
+      --blue:       #6b8fa3;
+      --blue-light: #dde8ee;
+      --blue-dark:  #4d6f82;
+      --charcoal:   #2c2c2c;
+      --mid:        #5a5550;
+      --light-text: #8a8480;
+      --border:     #ddd5ca;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { max-width: 100%; overflow-x: hidden; }
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* HEADER */
+    .page-header {
+      padding: 56px 40px 48px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(107,143,163,0.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .section-label {
+      font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--blue-dark); margin-bottom: 10px; display: block;
+    }
+    .page-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3rem);
+      font-weight: 400; color: var(--charcoal); margin-bottom: 14px;
+    }
+    .page-header h1 em { font-style: italic; color: var(--blue-dark); }
+    .page-header p {
+      max-width: 580px; margin: 0 auto;
+      font-size: 0.95rem; color: var(--mid); line-height: 1.85;
+    }
+    .asch-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--blue-light); border: 1px solid rgba(107,143,163,0.3);
+      border-radius: 100px; padding: 8px 18px;
+      font-size: 0.78rem; color: var(--blue-dark);
+      text-decoration: none; margin-top: 20px;
+      transition: background 0.2s;
+    }
+    .asch-badge:hover { background: #ccdde7; }
+    .asch-badge svg { width: 14px; height: 14px; fill: var(--blue-dark); }
+
+    /* CONTAINER */
+    .container { max-width: 900px; margin: 0 auto; padding: 0 32px; }
+
+    /* EXPLAINER */
+    .explainer-section { padding: 56px 0 48px; }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.7rem, 3.5vw, 2.2rem);
+      font-weight: 400; color: var(--charcoal);
+      margin-bottom: 14px; line-height: 1.25;
+    }
+    .section-desc {
+      font-size: 0.92rem; color: var(--mid);
+      line-height: 1.9; margin-bottom: 12px;
+    }
+
+    hr.divider { border: none; border-top: 1px solid var(--border); margin: 0 0 48px; }
+
+    /* MYTHS */
+    .myth-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px; margin-bottom: 48px;
+    }
+    .myth-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+    .myth-card-label {
+      font-size: 0.68rem; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 8px; display: block;
+    }
+    .myth-card-label.myth { color: #b05555; }
+    .myth-card-label.fact { color: var(--sage-dark); }
+    .myth-card p { font-size: 0.88rem; color: var(--mid); line-height: 1.75; }
+
+    /* RESEARCH */
+    .research-list { margin-bottom: 56px; }
+    .research-item {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.03);
+      display: flex; gap: 18px; align-items: flex-start;
+    }
+    .research-badge {
+      background: var(--blue-light); color: var(--blue-dark);
+      font-size: 0.68rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 100px;
+      white-space: nowrap; flex-shrink: 0; margin-top: 2px;
+    }
+    .research-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem; font-weight: 400;
+      color: var(--charcoal); margin-bottom: 4px;
+    }
+    .research-source { font-size: 0.82rem; color: var(--light-text); line-height: 1.6; }
+
+    /* CTA */
+    .cta-band {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      text-align: center;
+      padding: 52px 40px 56px;
+      margin-bottom: 72px;
+    }
+    .cta-band h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; font-weight: 400;
+      color: var(--charcoal); margin-bottom: 12px;
+    }
+    .cta-band > p {
+      font-size: 0.92rem; color: var(--mid);
+      margin-bottom: 32px; line-height: 1.8;
+      max-width: 480px; margin-left: auto; margin-right: auto;
+    }
+    .cta-contacts { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .cta-item {
+      display: flex; align-items: center; gap: 12px;
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 12px; padding: 18px 28px;
+      text-decoration: none; transition: all 0.2s;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .cta-item:hover { border-color: var(--sage); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.09); }
+    .cta-item-icon {
+      width: 40px; height: 40px; background: var(--sage-dark);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .cta-item-icon svg { width: 18px; height: 18px; fill: #fff; }
+    .cta-item-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--light-text); display: block; margin-bottom: 2px; }
+    .cta-item-value { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: var(--charcoal); display: block; white-space: nowrap; }
+
+    @media (max-width: 600px) {
+      .page-header { padding: 40px 20px 36px; }
+      .container { padding: 0 20px; }
+      .myth-grid { grid-template-columns: 1fr; }
+      .cta-band { padding: 36px 20px 40px; }
+      .cta-contacts { flex-direction: column; align-items: center; }
+      .cta-item { width: 100%; max-width: 300px; justify-content: center; text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="container">
+    <span class="section-label">Lisa Lombard, PhD</span>
+    <h1>Clinical Hypnosis <em>IRL</em></h1>
+    <p>What it actually is, what it actually does, and why the science behind it is more compelling than most people realize.</p>
+    <a href="https://www.asch.net" target="_blank" class="asch-badge">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+      ASCH Approved Consultant in Hypnosis
+    </a>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- EXPLAINER -->
+  <div class="explainer-section">
+    <span class="section-label">What It Actually Is</span>
+    <h2 class="section-title">Not what you've seen on stage.</h2>
+    <p class="section-desc">Clinical hypnosis is a state of focused attention and heightened inner awareness — not unconsciousness, not sleep, and nothing like what happens at a stage show. You remain fully awake, aware, and in control at every moment. Nothing happens to you without your consent. You cannot be made to do or say anything you wouldn't otherwise choose to do or say.</p>
+    <p class="section-desc">What hypnosis does is help you access a more receptive mental state — one where the mind is less caught up in its usual chatter and more open to working with new ideas, sensations, and perspectives. In that state, evidence-based techniques for managing pain, anxiety, and stress become significantly more effective.</p>
+    <p class="section-desc">I've been integrating clinical hypnosis into my practice for over 20 years. It isn't a replacement for talk therapy or other evidence-based approaches — it's a powerful complement to them, and the research is clear on that.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- MYTHS -->
+  <span class="section-label">Myths vs. Reality</span>
+  <h2 class="section-title" style="margin-bottom: 24px;">What hypnosis is not.</h2>
+
+  <div class="myth-grid">
+    <div class="myth-card">
+      <span class="myth-card-label myth">✗ Myth</span>
+      <p>You're unconscious or "under" someone's control during hypnosis.</p>
+    </div>
+    <div class="myth-card">
+      <span class="myth-card-label fact">✓ Reality</span>
+      <p>You're fully awake and aware throughout. Hypnosis is focused attention — you cannot be made to do anything against your will.</p>
+    </div>
+    <div class="myth-card">
+      <span class="myth-card-label myth">✗ Myth</span>
+      <p>It only works on suggestible or "weak-minded" people.</p>
+    </div>
+    <div class="myth-card">
+      <span class="myth-card-label fact">✓ Reality</span>
+      <p>Most people are hypnotizable to some degree. Children are often excellent candidates. The ability to focus and use imagination matters more than personality type.</p>
+    </div>
+    <div class="myth-card">
+      <span class="myth-card-label myth">✗ Myth</span>
+      <p>Hypnosis is a last resort for people who haven't responded to "real" therapy.</p>
+    </div>
+    <div class="myth-card">
+      <span class="myth-card-label fact">✓ Reality</span>
+      <p>Clinical hypnosis is most effective when integrated alongside evidence-based treatment — it enhances outcomes, not replaces them.</p>
+    </div>
+    <div class="myth-card">
+      <span class="myth-card-label myth">✗ Myth</span>
+      <p>You'll reveal secrets or say things you don't want to say.</p>
+    </div>
+    <div class="myth-card">
+      <span class="myth-card-label fact">✓ Reality</span>
+      <p>Hypnosis doesn't impair judgment or memory. You remain in complete control of what you share — there are no truth serums involved.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- RESEARCH -->
+  <span class="section-label">The Evidence</span>
+  <h2 class="section-title" style="margin-bottom: 24px;">What the research actually shows.</h2>
+
+  <div class="research-list">
+    <div class="research-item">
+      <span class="research-badge">Pain</span>
+      <div>
+        <p class="research-title">Hypnosis significantly reduces acute and chronic pain perception</p>
+        <p class="research-source">Meta-analyses in the Annals of Behavioral Medicine and the International Journal of Clinical & Experimental Hypnosis consistently show moderate-to-large effect sizes for pain management.</p>
+      </div>
+    </div>
+    <div class="research-item">
+      <span class="research-badge">Anxiety</span>
+      <div>
+        <p class="research-title">Hypnotherapy reduces anxiety comparably to other evidence-based interventions</p>
+        <p class="research-source">Research from the American Psychological Association shows hypnosis combined with CBT outperforms CBT alone for anxiety disorders in both adults and children.</p>
+      </div>
+    </div>
+    <div class="research-item">
+      <span class="research-badge">Children</span>
+      <div>
+        <p class="research-title">Children are often more responsive to hypnosis than adults</p>
+        <p class="research-source">Pediatric hypnosis has strong evidence for needle phobia, IBS, headaches, and procedure-related anxiety — often reducing the need for pharmacological sedation.</p>
+      </div>
+    </div>
+    <div class="research-item">
+      <span class="research-badge">IBS &amp; GI</span>
+      <div>
+        <p class="research-title">Gut-directed hypnotherapy is NICE-recommended for IBS</p>
+        <p class="research-source">The UK's National Institute for Health and Care Excellence lists gut-directed hypnotherapy as a recommended treatment for irritable bowel syndrome in adults and adolescents.</p>
+      </div>
+    </div>
+    <div class="research-item">
+      <span class="research-badge">Itch &amp; Skin</span>
+      <div>
+        <p class="research-title">Clinical hypnosis reduces itch severity in atopic dermatitis</p>
+        <p class="research-source">Studies show hypnosis can interrupt the itch-scratch cycle in chronic skin conditions — an area of particular interest in Dr. Lombard's clinical and research work.</p>
+      </div>
+    </div>
+    <div class="research-item">
+      <span class="research-badge">Sleep</span>
+      <div>
+        <p class="research-title">Hypnosis improves sleep quality and duration</p>
+        <p class="research-source">A meta-analysis in the Journal of Sleep Research found hypnotic suggestion increased slow-wave sleep by up to 80% and reduced time awake after sleep onset.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <h2>Curious if hypnosis could help?</h2>
+    <p>It's worth a conversation. Reach out and I'll be happy to answer your questions before we schedule anything.</p>
+    <div class="cta-contacts">
+      <a href="tel:7086550063" class="cta-item">
+        <div class="cta-item-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+        </div>
+        <div>
+          <span class="cta-item-label">Call or text</span>
+          <span class="cta-item-value">708-655-0063</span>
+        </div>
+      </a>
+      <a href="mailto:lisalombardphd@gmail.com" class="cta-item">
+        <div class="cta-item-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/></svg>
+        </div>
+        <div>
+          <span class="cta-item-label">Email</span>
+          <span class="cta-item-value">lisalombardphd@gmail.com</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  function sendHeight() {
+    window.parent.postMessage({ type: 'setHeight', height: document.body.scrollHeight }, '*');
+  }
+  window.addEventListener('load', sendHeight);
+  window.addEventListener('resize', sendHeight);
+</script>
+</body>
+</html>
