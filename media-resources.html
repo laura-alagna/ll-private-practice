@@ -51,30 +51,26 @@
     .article-meta{font-size:0.78rem;color:var(--light-text);margin-bottom:6px;letter-spacing:0.03em;line-height:1.5;}
     .article-desc{font-size:0.87rem;color:var(--mid);line-height:1.7;}
 
-    .event-banner {
-      width: 100%;
-      height: 260px;
-      border-radius: 12px;
-      overflow: hidden;
-      margin-bottom: 0;
-      position: relative;
-    }
-    .event-banner img {
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: center 30%;
-      display: block;
-    }
-    .event-banner-caption {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      background: linear-gradient(transparent, rgba(0,0,0,0.55));
-      padding: 24px 20px 14px;
-      font-size: 0.78rem; color: rgba(255,255,255,0.85);
-      letter-spacing: 0.04em;
-    }
-      .page-header{padding:40px 20px 36px;}
-      .container{padding:0 20px;}
-      .media-card{grid-template-columns:40px 1fr;}
-      .media-arrow{display:none;}
+    .event-banner { width: 100%; height: 260px; border-radius: 12px; overflow: hidden; margin-bottom: 0; position: relative; }
+    .event-banner img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; }
+    .event-banner-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.55)); padding: 24px 20px 14px; font-size: 0.78rem; color: rgba(255,255,255,0.85); letter-spacing: 0.04em; }
+    @media (max-width: 600px) {
+      .page-header { padding: 36px 20px 28px; }
+      .container { padding: 0 20px; }
+      .section { padding: 28px 0 24px; }
+      hr.divider { margin: 4px 0 28px; }
+      .section-intro { margin-bottom: 18px; }
+      .media-card { grid-template-columns: 40px 1fr; padding: 16px 16px; gap: 12px; }
+      .media-arrow { display: none; }
+      .media-icon { width: 40px; height: 40px; border-radius: 8px; }
+      .media-title { font-size: 1rem; }
+      .media-desc { font-size: 0.8rem; }
+      .media-note { margin-top: 14px; padding: 14px 16px; }
+      .event-banner { height: 180px; border-radius: 8px; }
+      .article-card { padding: 18px 16px; }
+      .article-title { font-size: 1.05rem; }
+      .article-meta { font-size: 0.75rem; }
+      .article-desc { font-size: 0.83rem; }
     }
   </style>
 </head>
@@ -169,7 +165,7 @@
 
   <!-- Event image — replace src with hosted URL once uploaded to GitHub -->
   <div class="event-banner">
-    <img src="../images/thumbnail_AD_and_AA_Continuing_Ed_Boston_Experience.avif"
+    <img src="images/thumbnail_AD_and_AA_Continuing_Ed_Boston_Experience.avif"
          alt="Dr. Lombard at the Atopic Dermatitis and Alopecia Areata Continuing Education panel, Boston"
          onerror="this.parentElement.style.display='none'" />
     <div class="event-banner-caption">AD &amp; AA Continuing Education Panel · Boston University</div>

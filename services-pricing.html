@@ -74,6 +74,8 @@
     .form-link:hover { border-color: var(--sage); background: var(--warm-white); color: var(--sage-dark); }
     .form-icon { width: 36px; height: 36px; background: var(--sage-light); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .form-icon svg { width: 18px; height: 18px; fill: var(--sage-dark); }
+    .table-scroll { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 40px; border-radius: 10px; }
+    .table-scroll .fee-table { margin-bottom: 0; }
     .note-box { background: var(--blue-light); border-left: 3px solid var(--blue); border-radius: 0 8px 8px 0; padding: 16px 20px; margin-bottom: 40px; font-size: 0.88rem; color: var(--mid); line-height: 1.75; }
     .page-footer { background: var(--charcoal); color: rgba(255,255,255,0.5); text-align: center; font-size: 0.8rem; padding: 28px; margin-top: 24px; letter-spacing: 0.04em; }
     .page-footer a { color: rgba(255,255,255,0.5); }
@@ -84,7 +86,9 @@
       .section { padding: 32px 0 10px; }
       hr.divider { margin: 6px 0 28px; }
       .table-scroll { margin-bottom: 28px; overflow-x: visible; }
-      .note-box { margin-bottom: 28px; }
+      .table-scroll { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 40px; border-radius: 10px; }
+    .table-scroll .fee-table { margin-bottom: 0; }
+    .note-box { margin-bottom: 28px; }
       .card-row { margin-bottom: 28px; }
       .insurance-grid { margin-bottom: 28px; }
       .forms-grid { margin-bottom: 40px; }
@@ -129,6 +133,7 @@
   </div>
 
   <div class="table-scroll">
+  <div class="table-scroll">
   <table class="fee-table">
     <thead><tr><th>Service</th><th class="col-length">Length</th><th class="col-cpt">CPT Code</th><th>Fee</th></tr></thead>
     <tbody>
@@ -149,6 +154,7 @@
     <p class="section-desc">Group sessions typically run 50–90 minutes depending on the group's design. Children's groups are shorter — usually 30–45 minutes. Family and couples sessions are 50 minutes or more.</p>
   </div>
 
+  <div class="table-scroll">
   <div class="table-scroll">
   <table class="fee-table">
     <thead><tr><th>Service</th><th class="col-length">Length</th><th class="col-cpt">CPT Code</th><th>Fee</th></tr></thead>
