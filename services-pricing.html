@@ -77,7 +77,25 @@
     .note-box { background: var(--blue-light); border-left: 3px solid var(--blue); border-radius: 0 8px 8px 0; padding: 16px 20px; margin-bottom: 40px; font-size: 0.88rem; color: var(--mid); line-height: 1.75; }
     .page-footer { background: var(--charcoal); color: rgba(255,255,255,0.5); text-align: center; font-size: 0.8rem; padding: 28px; margin-top: 24px; letter-spacing: 0.04em; }
     .page-footer a { color: rgba(255,255,255,0.5); }
-    @media (max-width: 600px) { .card-row, .forms-grid, .insurance-grid { grid-template-columns: 1fr; } }
+    .table-scroll { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 40px; border-radius: 10px; }
+    .table-scroll .fee-table { margin-bottom: 0; }
+    @media (max-width: 600px) {
+      .card-row, .forms-grid, .insurance-grid { grid-template-columns: 1fr; }
+      .section { padding: 32px 0 10px; }
+      .fee-table thead th { padding: 11px 12px; font-size: 0.68rem; }
+      .fee-table tbody td { padding: 12px 12px; font-size: 0.84rem; }
+      .fee-table tbody td.fee { font-size: 0.95rem; }
+      .fee-table tbody td.cpt { font-size: 0.76rem; }
+      hr.divider { margin: 6px 0 28px; }
+      .table-scroll { margin-bottom: 28px; }
+      .note-box { margin-bottom: 28px; }
+      .card-row { margin-bottom: 28px; }
+      .insurance-grid { margin-bottom: 28px; }
+      .forms-grid { margin-bottom: 40px; }
+      .page-header { padding: 36px 20px 32px; }
+      .container { padding: 0 20px; }
+      .window-banner { height: 160px; border-radius: 8px; }
+    }
   </style>
 </head>
 <body>
@@ -99,6 +117,7 @@
     <p class="section-desc">Your first appointment is typically 80–90 minutes — enough time to talk through your history, what's bringing you in, and what you're hoping to get from therapy. Regular sessions are 50 minutes. Shorter appointments (around 30 minutes) are available for children and billed accordingly.</p>
   </div>
 
+  <div class="table-scroll">
   <table class="fee-table">
     <thead><tr><th>Service</th><th>Length</th><th>CPT Code</th><th>Fee</th></tr></thead>
     <tbody>
@@ -109,6 +128,7 @@
       <tr><td>Clinical Phone Consultation</td><td class="length">21–30 min</td><td class="cpt">98968</td><td class="fee">$100</td></tr>
     </tbody>
   </table>
+  </div>
 
   <hr class="divider">
 
@@ -118,6 +138,7 @@
     <p class="section-desc">Group sessions typically run 50–90 minutes depending on the group's design. Children's groups are shorter — usually 30–45 minutes. Family and couples sessions are 50 minutes or more.</p>
   </div>
 
+  <div class="table-scroll">
   <table class="fee-table">
     <thead><tr><th>Service</th><th>Length</th><th>CPT Code</th><th>Fee</th></tr></thead>
     <tbody>
@@ -128,12 +149,13 @@
       <tr><td>Home Visit <span style="font-size:0.8rem;color:var(--light-text)">(travel billed separately)</span></td><td class="length">Varies</td><td class="cpt">—</td><td class="fee">$250 <span style="font-size:0.78rem;color:var(--light-text)">+ $200/hr travel</span></td></tr>
     </tbody>
   </table>
+  </div>
 
   <hr class="divider">
 
   <!-- Clinker wall with window image. Replace src with your hosted image URL. -->
   <div class="window-banner">
-    <img src="/images/thumbnail_clinker-wall.avif"
+    <img src="/mnt/user-data/uploads/thumbnail_clinker-wall.avif"
          alt="Clinker brick wall with window"
          onerror="this.parentElement.classList.add('placeholder')" />
     <div class="window-banner-placeholder">
