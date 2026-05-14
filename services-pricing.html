@@ -7,33 +7,81 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --cream: #faf8f4;
+      --cream:      #faf8f4;
       --warm-white: #f0ece6;
-      --sage: #5a7a9e;
+      --sage:       #5a7a9e;
       --sage-light: #b0c4d8;
-      --sage-dark: #3d5c7e;
-      --charcoal: #1e2838;
-      --mid: #445060;
+      --sage-dark:  #3d5c7e;
+      --charcoal:   #1e2838;
+      --mid:        #445060;
       --light-text: #8a7880;
-      --border: #e2ddd8;
-      --blue: #5a7a9e;
+      --border:     #e2ddd8;
+      --mauve:      #c4aeb8;
+      --mauve-wash: #f8f2f5;
+      --blue:       #5a7a9e;
       --blue-light: #dde6ee;
-      --blue-dark: #3d5c7e;
+      --blue-dark:  #3d5c7e;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { max-width: 100%; overflow-x: hidden; }
     body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--charcoal); font-weight: 300; line-height: 1.7; }
+
+    /* ── Page header ── */
     .page-header { background: var(--cream); border-bottom: 1px solid var(--border); padding: 56px 40px 48px; text-align: center; position: relative; overflow: hidden; }
     .page-header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(90,122,158,0.10) 0%, transparent 70%); pointer-events: none; }
     .page-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3rem); font-weight: 400; color: var(--charcoal); letter-spacing: 0.02em; }
     .page-header p { max-width: 600px; margin: 16px auto 0; color: var(--mid); font-size: 0.95rem; line-height: 1.85; }
     .contact-pill { display: inline-block; margin-top: 22px; background: var(--sage-dark); color: #fff; font-size: 0.82rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; padding: 12px 30px; border-radius: 100px; text-decoration: none; transition: background 0.2s; }
     .contact-pill:hover { background: #2c4560; }
+
+    /* ── Layout ── */
     .container { max-width: 900px; margin: 0 auto; padding: 0 32px; }
-    .section { padding: 56px 0 16px; }
+
+    /* ── Tabs ── */
+    .tabs-wrapper { padding: 36px 0 0; }
+    .tab-nav { display: flex; border-bottom: 1px solid var(--border); margin-bottom: 48px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    .tab-nav::-webkit-scrollbar { display: none; }
+    .tab-btn { font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--light-text); background: none; border: none; border-bottom: 2px solid transparent; padding: 14px 22px; cursor: pointer; white-space: nowrap; transition: color 0.2s, border-color 0.2s; margin-bottom: -1px; }
+    .tab-btn:hover { color: var(--mid); }
+    .tab-btn.active { color: var(--sage-dark); border-bottom-color: var(--sage-dark); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ── Section typography ── */
+    .section { padding: 0 0 16px; }
+    .section + .section { padding-top: 48px; }
     .section-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage-dark); margin-bottom: 8px; }
     .section-title { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; font-weight: 400; color: var(--charcoal); margin-bottom: 10px; }
     .section-desc { font-size: 0.92rem; color: var(--mid); max-width: 660px; line-height: 1.85; margin-bottom: 28px; }
+
+    /* ── Prose ── */
+    .prose { font-size: 0.92rem; color: var(--mid); line-height: 1.85; max-width: 680px; margin-bottom: 20px; }
+
+    /* ── Modality cards (children tab) ── */
+    .modality-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 36px; }
+    .modality-card { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 22px 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
+    .modality-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: var(--charcoal); margin-bottom: 6px; }
+    .modality-card p { font-size: 0.85rem; color: var(--mid); line-height: 1.7; }
+
+    /* ── Specialty blocks ── */
+    .specialty-block { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
+    .specialty-block .block-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage); margin-bottom: 6px; }
+    .specialty-block h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; font-weight: 400; color: var(--charcoal); margin-bottom: 12px; }
+    .specialty-block p { font-size: 0.9rem; color: var(--mid); line-height: 1.85; margin-bottom: 14px; }
+    .specialty-block p:last-child { margin-bottom: 0; }
+    .tag-list { list-style: none; padding: 0; margin: 0 0 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag-list li { font-size: 0.8rem; color: var(--sage-dark); background: var(--blue-light); border-radius: 100px; padding: 4px 14px; }
+    .specialty-link { display: inline-block; margin-top: 8px; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage-dark); text-decoration: none; border-bottom: 1px solid var(--sage-light); padding-bottom: 1px; transition: border-color 0.2s, color 0.2s; }
+    .specialty-link:hover { color: var(--charcoal); border-color: var(--sage-dark); }
+
+    /* ── Session structure (food allergy) ── */
+    .session-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin: 16px 0 24px; }
+    .session-card { background: var(--blue-light); border-radius: 10px; padding: 18px 20px; }
+    .session-card .session-num { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 500; color: var(--sage-dark); line-height: 1; margin-bottom: 4px; }
+    .session-card .session-label { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage); margin-bottom: 8px; }
+    .session-card p { font-size: 0.82rem; color: var(--mid); line-height: 1.65; }
+
+    /* ── Fee tables ── */
     .fee-table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 40px; box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
     .fee-table thead tr { background: var(--sage-dark); }
     .fee-table thead th { color: #fff; font-family: 'Jost', sans-serif; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; padding: 14px 20px; text-align: left; }
@@ -43,58 +91,56 @@
     .fee-table tbody td.fee { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 500; color: var(--sage-dark); white-space: nowrap; }
     .fee-table tbody td.cpt { font-size: 0.82rem; color: var(--light-text); font-family: 'Jost', monospace; }
     .fee-table tbody td.length { font-size: 0.85rem; color: var(--mid); }
+    .table-scroll { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 40px; border-radius: 10px; }
+    .table-scroll .fee-table { margin-bottom: 0; }
+
+    /* ── Info cards (consultation) ── */
     .card-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px; }
     .info-card { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 28px; box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
     .info-card .card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: var(--charcoal); margin-bottom: 6px; }
     .info-card .card-desc { font-size: 0.85rem; color: var(--mid); line-height: 1.75; margin-bottom: 16px; }
     .info-card .card-fee { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 500; color: var(--sage-dark); }
+
+    /* ── Divider / banner ── */
     hr.divider { border: none; border-top: 1px solid var(--border); margin: 8px 0 48px; }
-    .window-banner {
-      width: 100%;
-      height: 220px;
-      border-radius: 12px;
-      overflow: hidden;
-      margin-bottom: 0;
-      position: relative;
-      background: var(--blue-light);
-    }
+    .window-banner { width: 100%; height: 220px; border-radius: 12px; overflow: hidden; margin-bottom: 48px; position: relative; background: var(--blue-light); }
     .window-banner img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; }
     .window-banner-placeholder { display: none; flex-direction: column; align-items: center; justify-content: center; gap: 10px; height: 100%; color: var(--blue-dark); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; }
     .window-banner-placeholder svg { width: 32px; height: 32px; }
     .window-banner.placeholder img { display: none; }
     .window-banner.placeholder .window-banner-placeholder { display: flex; }
-    .insurance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px; }
-    .insurance-card { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 24px 22px; box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
-    .insurance-card .icon { width: 36px; height: 36px; background: var(--blue-light); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
-    .insurance-card .icon svg { width: 18px; height: 18px; fill: var(--blue-dark); }
-    .insurance-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: var(--charcoal); margin-bottom: 8px; }
-    .insurance-card p { font-size: 0.85rem; color: var(--mid); line-height: 1.7; }
+
+    /* ── Note box ── */
+    .note-box { background: var(--mauve-wash); border-left: 3px solid var(--mauve); border-radius: 0 8px 8px 0; padding: 16px 20px; margin-bottom: 40px; font-size: 0.88rem; color: var(--mid); line-height: 1.75; }
+
+    /* ── Forms tab ── */
+    .forms-intro { font-size: 0.92rem; color: var(--mid); line-height: 1.85; max-width: 600px; margin-bottom: 32px; }
     .forms-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 64px; }
     .form-link { display: flex; align-items: center; gap: 14px; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; text-decoration: none; color: var(--charcoal); font-size: 0.88rem; transition: all 0.2s; box-shadow: 0 1px 6px rgba(0,0,0,0.03); }
     .form-link:hover { border-color: var(--sage); background: var(--warm-white); color: var(--sage-dark); }
     .form-icon { width: 36px; height: 36px; background: var(--sage-light); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .form-icon svg { width: 18px; height: 18px; fill: var(--sage-dark); }
-    .table-scroll { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 40px; border-radius: 10px; }
-    .table-scroll .fee-table { margin-bottom: 0; }
-    .note-box { background: var(--blue-light); border-left: 3px solid var(--blue); border-radius: 0 8px 8px 0; padding: 16px 20px; margin-bottom: 40px; font-size: 0.88rem; color: var(--mid); line-height: 1.75; }
-    .page-footer { background: var(--charcoal); color: rgba(255,255,255,0.5); text-align: center; font-size: 0.8rem; padding: 28px; margin-top: 24px; letter-spacing: 0.04em; }
-    .page-footer a { color: rgba(255,255,255,0.5); }
-    .table-scroll { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 40px; border-radius: 10px; }
-    .table-scroll .fee-table { margin-bottom: 0; }
+
+    /* ── Mobile ── */
     @media (max-width: 600px) {
-      .card-row, .forms-grid, .insurance-grid { grid-template-columns: 1fr; }
-      .section { padding: 32px 0 10px; }
-      hr.divider { margin: 6px 0 28px; }
-      .table-scroll { margin-bottom: 28px; overflow-x: visible; }
-      .table-scroll { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 40px; border-radius: 10px; }
-    .table-scroll .fee-table { margin-bottom: 0; }
-    .note-box { margin-bottom: 28px; }
-      .card-row { margin-bottom: 28px; }
-      .insurance-grid { margin-bottom: 28px; }
-      .forms-grid { margin-bottom: 40px; }
       .page-header { padding: 36px 20px 32px; }
       .container { padding: 0 20px; }
-      .window-banner { height: 160px; border-radius: 8px; }
+      .tabs-wrapper { padding: 20px 0 0; }
+      .tab-btn { padding: 12px 14px; font-size: 0.72rem; }
+      .tab-nav { margin-bottom: 32px; }
+      .tab-panel.active { padding-bottom: 40px; }
+      .section + .section { padding-top: 32px; }
+      .modality-grid { grid-template-columns: 1fr; }
+      .session-row { grid-template-columns: 1fr; }
+      .card-row, .forms-grid { grid-template-columns: 1fr; }
+      .card-row { margin-bottom: 28px; }
+      .specialty-block { padding: 24px 20px; margin-bottom: 16px; }
+      .forms-intro { margin-bottom: 20px; }
+      .forms-grid { margin-bottom: 40px; }
+      .window-banner { height: 160px; border-radius: 8px; margin-bottom: 32px; }
+      .note-box { margin-bottom: 28px; }
+      .table-scroll { margin-bottom: 28px; }
+      hr.divider { margin: 6px 0 32px; }
       .fee-table thead th.col-length,
       .fee-table thead th.col-cpt,
       .fee-table tbody td.length,
@@ -119,120 +165,261 @@
   <div class="container">
     <p class="section-label">Lisa Lombard, PhD</p>
     <h1>Services &amp; Fees</h1>
-    <p>A full overview of session lengths, fees, insurance, and patient forms — for individual, group, family, and professional services. Questions? Just call.</p>
+    <p>An overview of how I work, what I treat, and what to expect — for individuals, children, families, and professionals. Questions? Just call.</p>
     <a href="tel:7086550063" class="contact-pill">708-655-0063</a>
   </div>
 </header>
 
 <main class="container">
+  <div class="tabs-wrapper">
 
-  <div class="section">
-    <p class="section-label">Individual Services</p>
-    <h2 class="section-title">Individual Therapy</h2>
-    <p class="section-desc">Your first appointment is typically 80–90 minutes — enough time to talk through your history, what's bringing you in, and what you're hoping to get from therapy. Regular sessions are 50 minutes. Shorter appointments (around 30 minutes) are available for children and billed accordingly.</p>
-  </div>
+    <nav class="tab-nav" role="tablist">
+      <button class="tab-btn active" role="tab" aria-selected="true"  data-tab="therapy">Individual Therapy</button>
+      <button class="tab-btn"        role="tab" aria-selected="false" data-tab="specialties">Specialties</button>
+      <button class="tab-btn"        role="tab" aria-selected="false" data-tab="fees">Fees</button>
+      <button class="tab-btn"        role="tab" aria-selected="false" data-tab="forms">Patient Forms</button>
+    </nav>
 
-  <div class="table-scroll">
-  <div class="table-scroll">
-  <table class="fee-table">
-    <thead><tr><th>Service</th><th class="col-length">Length</th><th class="col-cpt">CPT Code</th><th>Fee</th></tr></thead>
-    <tbody>
-      <tr><td class="svc" data-sub="Varies · typically 80–90 min">Initial Assessment</td><td class="length">Varies (typically 80–90 min)</td><td class="cpt">90791</td><td class="fee">$240</td></tr>
-      <tr><td class="svc" data-sub="38–52 min">Individual Psychotherapy</td><td class="length">38–52 min</td><td class="cpt">90834</td><td class="fee">$200</td></tr>
-      <tr><td class="svc" data-sub="53–60 min">Individual Psychotherapy</td><td class="length">53–60 min</td><td class="cpt">90837</td><td class="fee">$215</td></tr>
-      <tr><td class="svc" data-sub="Per 15 min">Health &amp; Behavior Intervention</td><td class="length">Per 15 min</td><td class="cpt">96156, 96158</td><td class="fee">Varies</td></tr>
-      <tr><td class="svc" data-sub="21–30 min">Clinical Phone Consultation</td><td class="length">21–30 min</td><td class="cpt">98968</td><td class="fee">$100</td></tr>
-    </tbody>
-  </table>
-  </div>
 
-  <hr class="divider">
+    <!-- ═══════════════════════════════════════
+         TAB 1 — Individual Therapy
+    ════════════════════════════════════════ -->
+    <div class="tab-panel active" id="tab-therapy">
 
-  <div class="section">
-    <p class="section-label">Group &amp; Family Services</p>
-    <h2 class="section-title">Group, Family &amp; Couples Therapy</h2>
-    <p class="section-desc">Group sessions typically run 50–90 minutes depending on the group's design. Children's groups are shorter — usually 30–45 minutes. Family and couples sessions are 50 minutes or more.</p>
-  </div>
+      <div class="section">
+        <p class="section-label">Adults</p>
+        <h2 class="section-title">Psychotherapy with Adults</h2>
+        <p class="prose">For over 25 years I have had the privilege of listening to and learning from individuals and families as they engage in psychotherapy. In my practice I offer both short-term and long-term work, drawing on a bio-psycho-social framework to help adults meet the challenges of life — managing illness and pain, coping with anxiety, navigating loss and family transitions, and working through relationship difficulties.</p>
+        <p class="prose">My approach is integrative. Alongside talk therapy, I may incorporate hypnotherapy and mindfulness practices, because research shows these tools effectively support coping and skill-building for pain and anxiety. My goal is to help you find relief from distress and move toward wellness — gaining insight, developing new coping strategies, and integrating meaningful change into your life.</p>
+      </div>
 
-  <div class="table-scroll">
-  <div class="table-scroll">
-  <table class="fee-table">
-    <thead><tr><th>Service</th><th class="col-length">Length</th><th class="col-cpt">CPT Code</th><th>Fee</th></tr></thead>
-    <tbody>
-      <tr><td class="svc" data-sub="Varies">Group Therapy</td><td class="length">Varies</td><td class="cpt">90849, 90853</td><td class="fee">$220</td></tr>
-      <tr><td class="svc" data-sub="50+ min">Family Psychotherapy</td><td class="length">50+ min</td><td class="cpt">90846, 90847</td><td class="fee">$215</td></tr>
-      <tr><td class="svc" data-sub="50+ min">Couples Psychotherapy</td><td class="length">50+ min</td><td class="cpt">—</td><td class="fee">$215</td></tr>
-      <tr><td class="svc" data-sub="Per 15 min">Health &amp; Behavior Intervention</td><td class="length">Per 15 min</td><td class="cpt">96153, 96154</td><td class="fee">Varies</td></tr>
-      <tr><td class="svc" data-sub="Varies · travel billed separately">Home Visit</td><td class="length">Varies</td><td class="cpt">—</td><td class="fee">$250 <span style="font-size:0.78rem;color:var(--light-text)">+ $200/hr travel</span></td></tr>
-    </tbody>
-  </table>
-  </div>
+      <hr class="divider">
 
-  <hr class="divider">
+      <div class="section">
+        <p class="section-label">Children &amp; Adolescents</p>
+        <h2 class="section-title">Therapy with Children and Adolescents</h2>
+        <p class="prose">Growing up is an ongoing, individual process — and when a child is struggling emotionally, not adjusting well, in pain, or having difficulty with peers, the whole family feels it. I believe therapy works best when it is tailored to your child's emotional and developmental needs and to the needs of your family as a whole. My work with children and adolescents always involves the child, parent(s), and when relevant, healthcare providers and educators.</p>
+      </div>
 
-  <!-- Clinker wall with window image. Replace src with your hosted image URL. -->
-  <div class="window-banner">
-    <img src="/mnt/user-data/uploads/thumbnail_clinker-wall.avif"
-         alt="Clinker brick wall with window"
-         onerror="this.parentElement.classList.add('placeholder')" />
-    <div class="window-banner-placeholder">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
-      <span>Image: clinker wall with window</span>
-    </div>
-  </div>
+      <div class="modality-grid">
+        <div class="modality-card">
+          <h4>Individual Therapy</h4>
+          <p>Tailored to each child's age and needs — including talk therapy, play therapy, hypnotherapy, and expressive arts approaches such as art and sand tray work.</p>
+        </div>
+        <div class="modality-card">
+          <h4>Family &amp; Group Therapy</h4>
+          <p>Family therapy may involve siblings, the full family unit, or focused parent guidance. Group therapy begins with an intake interview and behavior checklist to ensure the right fit.</p>
+        </div>
+        <div class="modality-card">
+          <h4>School &amp; Provider Consultation</h4>
+          <p>By collaborating with educators and physicians, I help provide flexible, individualized care. School observations and assessments may be part of this work.</p>
+        </div>
+        <div class="modality-card">
+          <h4>Pediatric Hypnosis &amp; Biofeedback</h4>
+          <p>Developmentally appropriate self-regulation tools that help children manage pain, anxiety, habits, and health-related distress — embedded within a therapeutic relationship.</p>
+        </div>
+      </div>
 
-  <div class="section">
-    <h2 class="section-title">Consultation &amp; Expert Testimony</h2>
-    <p class="section-desc">Professional consultation is available on an hourly basis for clinicians, educators, physicians, and legal teams. Expert testimony fees cover all billable hours — evaluation, attorney preparation, travel, and direct testimony.</p>
-  </div>
+      <div class="note-box">
+        Please <a href="https://www.lisalombardphd.com/contact" style="color:var(--sage-dark);">reach out</a> to discuss pediatric therapy options in more detail — every child's situation is different and I'm happy to talk through what might be the best fit.
+      </div>
 
-  <div class="card-row">
-    <div class="info-card">
-      <p class="card-title">Consultation Services</p>
-      <p class="card-desc">Hourly professional consultation for clinicians, schools, healthcare providers, and organizations.</p>
-      <p class="card-fee">$350 / hour</p>
-    </div>
-    <div class="info-card">
-      <p class="card-title">Expert Testimony</p>
-      <p class="card-desc">All billable hours included: evaluation, travel, attorney preparation, and direct court testimony.</p>
-      <p class="card-fee">$350 / hour</p>
-    </div>
-  </div>
+    </div><!-- /tab-therapy -->
 
-  <div class="note-box">
-    <strong>Psychological Evaluations:</strong> Psychological evaluations are not currently being offered. Please reach out if you'd like a referral recommendation.
-  </div>
 
-  <hr class="divider">
+    <!-- ═══════════════════════════════════════
+         TAB 2 — Specialties
+    ════════════════════════════════════════ -->
+    <div class="tab-panel" id="tab-specialties">
 
-  <div class="section">
-    <p class="section-label">Before Your First Appointment</p>
-    <h2 class="section-title">Patient Forms</h2>
-    <p class="section-desc">Please print and complete these forms before arriving for your first session. It helps us make the most of our time together from day one.</p>
-  </div>
+      <div class="specialty-block">
+        <p class="block-label">Performance</p>
+        <h3>Strengthening Performance</h3>
+        <p>I work with students, athletes, musicians, actors, public speakers, and professionals who want to sharpen how they perform under pressure. Using mindfulness-based exercises, self-hypnosis coaching, and current research, I help people shift their relationship with anxiety — transforming it from a liability into something manageable and even useful.</p>
+        <p>Areas where these skills make a practical difference:</p>
+        <ul class="tag-list">
+          <li>Test-taking &amp; academics</li>
+          <li>Athletic performance</li>
+          <li>Musical &amp; stage performance</li>
+          <li>Public speaking</li>
+          <li>Workplace decision-making</li>
+          <li>Mindful eating habits</li>
+          <li>Creative &amp; artistic goals</li>
+        </ul>
+      </div>
 
-  <div class="forms-grid">
-    <a class="form-link" href="https://urldefense.com/v3/__https://www.lisalombardphd.com/_files/ugd/61a73f_a485c476213f47c8963f865509382ac9.pdf__;!!Dq0X2DkFhyF93HkjWTBQKhk!Qd3qIiBupOEM96tDcRW4GOCjpW_ksIxkkJ3Qo41d-02ShQ4Qf3ZAQcjmp8hF-EVDhnRTy6vwBr_MrUeuUaCNX2ip1-LDb0oytg$" target="_blank">
-      <span class="form-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg></span>
-      Patient History Form (Adult)
-    </a>
-    <a class="form-link" href="https://urldefense.com/v3/__https://www.lisalombardphd.com/_files/ugd/61a73f_6b34d9162a7546838ac520f2aa613550.pdf__;!!Dq0X2DkFhyF93HkjWTBQKhk!Qd3qIiBupOEM96tDcRW4GOCjpW_ksIxkkJ3Qo41d-02ShQ4Qf3ZAQcjmp8hF-EVDhnRTy6vwBr_MrUeuUaCNX2ip1-JHLyJZFA$" target="_blank">
-      <span class="form-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg></span>
-      Patient History Form (Child)
-    </a>
-    <a class="form-link" href="https://urldefense.com/v3/__https://www.lisalombardphd.com/_files/ugd/61a73f_588a92a3b0e34e5380278232e63a63ef.pdf__;!!Dq0X2DkFhyF93HkjWTBQKhk!Qd3qIiBupOEM96tDcRW4GOCjpW_ksIxkkJ3Qo41d-02ShQ4Qf3ZAQcjmp8hF-EVDhnRTy6vwBr_MrUeuUaCNX2ip1-JwBbBgdw$" target="_blank">
-      <span class="form-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg></span>
-      Notice of Privacy Form
-    </a>
-    <a class="form-link" href="https://urldefense.com/v3/__https://www.lisalombardphd.com/_files/ugd/61a73f_037ad9dc44fc4e449fdeefe99b0da44b.docx__;!!Dq0X2DkFhyF93HkjWTBQKhk!Qd3qIiBupOEM96tDcRW4GOCjpW_ksIxkkJ3Qo41d-02ShQ4Qf3ZAQcjmp8hF-EVDhnRTy6vwBr_MrUeuUaCNX2ip1-IFj7Zz-A$" target="_blank">
-      <span class="form-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg></span>
-      Therapist-Patient Agreement
-    </a>
-  </div>
+      <div class="specialty-block">
+        <p class="block-label">Food Allergies, Asthma &amp; Eczema</p>
+        <h3>Coping with Food Allergies, Asthma &amp; Eczema</h3>
+        <p>As chronic yet largely "unseen" conditions, food allergies, asthma, and eczema present a unique psychological challenge — especially for children and teens. I specialize in helping individuals and families manage the anxiety, pain, and stress that come with these diagnoses, using an integrative behavioral health approach grounded in Cognitive Behavioral Therapy (CBT) and adapted specifically for this population.</p>
+        <p>I recognize that the psychosocial stakes shift at key developmental points — first diagnosis, starting school, overnight camp, adolescence, college — and that treatment must account for this. My goal is to help families reduce anxiety, strengthen coping skills, and build resilience: not just surviving their food allergy journey, but thriving. I am a former faculty member at Northwestern's Center for Food Allergy &amp; Asthma Research (CFAAR) and have spoken at Lurie Children's Hospital's Food Allergy Support and Education program.</p>
+        <p class="block-label" style="margin-top: 20px;">Consultation Structure</p>
+        <div class="session-row">
+          <div class="session-card">
+            <div class="session-num">75 min</div>
+            <div class="session-label">First Session</div>
+            <p>Parents and children share their history, concerns, and goals. Telehealth available.</p>
+          </div>
+          <div class="session-card">
+            <div class="session-num">60 min</div>
+            <div class="session-label">Second Session</div>
+            <p>We check in on progress and co-create a balanced plan, including a tailored mindfulness or relaxation practice recorded for the family's ongoing use.</p>
+          </div>
+          <div class="session-card">
+            <div class="session-num">Monthly</div>
+            <div class="session-label">Caregiver Group</div>
+            <p>A fee-for-service Zoom group for caregivers focused on food allergy balance and self-directed stress management. Meets mid-day.</p>
+          </div>
+        </div>
+        <p>I also offer pain and distress management for patients of all ages who use self-injections (e.g., epinephrine, omalizumab/Xolair) for food allergies, asthma, and anaphylaxis — including virtual and in-person parent training using the extended Magic Glove protocol.</p>
+        <a href="https://www.lisalombardphd.com/comfort-kits-for-food-allergies" class="specialty-link">Learn about Comfort Kits for Children® →</a>
+      </div>
 
+      <div class="specialty-block">
+        <p class="block-label">Clinical Hypnosis</p>
+        <h3>Hypnotherapy</h3>
+        <p>I integrate medical hypnosis, guided imagery, and mindfulness into psychotherapy for both adults and children. These are evidence-based tools — not what you've seen on a stage — and they work most effectively when embedded within a therapeutic relationship.</p>
+        <p>For adults, hypnotherapy can help with anxiety, depression, pain management, sleep, smoking cessation, weight and behavioral habits, concentration difficulties, and surgery preparation. For children, pediatric hypnosis and biofeedback offer developmentally appropriate strategies for managing pain, anxiety, habits such as bed-wetting or nail-biting, and gastrointestinal issues like functional abdominal pain.</p>
+        <a href="https://www.lisalombardphd.com/clinical-hypnosis" class="specialty-link">Learn more about clinical hypnosis →</a>
+      </div>
+
+    </div><!-- /tab-specialties -->
+
+
+    <!-- ═══════════════════════════════════════
+         TAB 3 — Fees
+    ════════════════════════════════════════ -->
+    <div class="tab-panel" id="tab-fees">
+
+      <div class="section">
+        <p class="section-label">Individual Services</p>
+        <h2 class="section-title">Individual Therapy</h2>
+        <p class="section-desc">Your first appointment is typically 80–90 minutes — enough time to talk through your history, what's bringing you in, and what you're hoping to get from therapy. Regular sessions are 50 minutes. Shorter appointments (around 30 minutes) are available for children and billed accordingly.</p>
+      </div>
+
+      <div class="table-scroll">
+        <table class="fee-table">
+          <thead><tr><th>Service</th><th class="col-length">Length</th><th class="col-cpt">CPT Code</th><th>Fee</th></tr></thead>
+          <tbody>
+            <tr><td class="svc" data-sub="Varies · typically 80–90 min">Initial Assessment</td><td class="length">Varies (typically 80–90 min)</td><td class="cpt">90791</td><td class="fee">$240</td></tr>
+            <tr><td class="svc" data-sub="38–52 min">Individual Psychotherapy</td><td class="length">38–52 min</td><td class="cpt">90834</td><td class="fee">$200</td></tr>
+            <tr><td class="svc" data-sub="53–60 min">Individual Psychotherapy</td><td class="length">53–60 min</td><td class="cpt">90837</td><td class="fee">$215</td></tr>
+            <tr><td class="svc" data-sub="Per 15 min">Health &amp; Behavior Intervention</td><td class="length">Per 15 min</td><td class="cpt">96156, 96158</td><td class="fee">Varies</td></tr>
+            <tr><td class="svc" data-sub="21–30 min">Clinical Phone Consultation</td><td class="length">21–30 min</td><td class="cpt">98968</td><td class="fee">$100</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <hr class="divider">
+
+      <div class="section">
+        <p class="section-label">Group &amp; Family Services</p>
+        <h2 class="section-title">Group, Family &amp; Couples Therapy</h2>
+        <p class="section-desc">Group sessions typically run 50–90 minutes depending on the group's design. Children's groups are shorter — usually 30–45 minutes. Family and couples sessions are 50 minutes or more.</p>
+      </div>
+
+      <div class="table-scroll">
+        <table class="fee-table">
+          <thead><tr><th>Service</th><th class="col-length">Length</th><th class="col-cpt">CPT Code</th><th>Fee</th></tr></thead>
+          <tbody>
+            <tr><td class="svc" data-sub="Varies">Group Therapy</td><td class="length">Varies</td><td class="cpt">90849, 90853</td><td class="fee">$220</td></tr>
+            <tr><td class="svc" data-sub="50+ min">Family Psychotherapy</td><td class="length">50+ min</td><td class="cpt">90846, 90847</td><td class="fee">$215</td></tr>
+            <tr><td class="svc" data-sub="50+ min">Couples Psychotherapy</td><td class="length">50+ min</td><td class="cpt">—</td><td class="fee">$215</td></tr>
+            <tr><td class="svc" data-sub="Per 15 min">Health &amp; Behavior Intervention</td><td class="length">Per 15 min</td><td class="cpt">96153, 96154</td><td class="fee">Varies</td></tr>
+            <tr><td class="svc" data-sub="Varies · travel billed separately">Home Visit</td><td class="length">Varies</td><td class="cpt">—</td><td class="fee">$250 <span style="font-size:0.78rem;color:var(--light-text)">+ $200/hr travel</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <hr class="divider">
+
+      <div class="window-banner">
+        <img src="images/clinker-wall.avif"
+             alt="Clinker brick wall with window"
+             onerror="this.parentElement.classList.add('placeholder')" />
+        <div class="window-banner-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
+          <span>Image: clinker wall with window</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">Consultation &amp; Expert Testimony</h2>
+        <p class="section-desc">Professional consultation is available on an hourly basis for clinicians, educators, physicians, and legal teams. Expert testimony fees cover all billable hours — evaluation, attorney preparation, travel, and direct testimony.</p>
+      </div>
+
+      <div class="card-row">
+        <div class="info-card">
+          <p class="card-title">Consultation Services</p>
+          <p class="card-desc">Hourly professional consultation for clinicians, schools, healthcare providers, and organizations.</p>
+          <p class="card-fee">$350 / hour</p>
+        </div>
+        <div class="info-card">
+          <p class="card-title">Expert Testimony</p>
+          <p class="card-desc">All billable hours included: evaluation, travel, attorney preparation, and direct court testimony.</p>
+          <p class="card-fee">$350 / hour</p>
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Psychological Evaluations:</strong> Psychological evaluations are not currently being offered. Please reach out if you'd like a referral recommendation.
+      </div>
+
+    </div><!-- /tab-fees -->
+
+
+    <!-- ═══════════════════════════════════════
+         TAB 4 — Patient Forms
+    ════════════════════════════════════════ -->
+    <div class="tab-panel" id="tab-forms">
+
+      <div class="section">
+        <p class="section-label">Before Your First Appointment</p>
+        <h2 class="section-title">Patient Forms</h2>
+      </div>
+      <p class="forms-intro">Please print and complete these forms before arriving for your first session. It helps us make the most of our time together from day one.</p>
+
+      <div class="forms-grid">
+        <a class="form-link" href="https://urldefense.com/v3/__https://www.lisalombardphd.com/_files/ugd/61a73f_a485c476213f47c8963f865509382ac9.pdf__;!!Dq0X2DkFhyF93HkjWTBQKhk!Qd3qIiBupOEM96tDcRW4GOCjpW_ksIxkkJ3Qo41d-02ShQ4Qf3ZAQcjmp8hF-EVDhnRTy6vwBr_MrUeuUaCNX2ip1-LDb0oytg$" target="_blank">
+          <span class="form-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg></span>
+          Patient History Form (Adult)
+        </a>
+        <a class="form-link" href="https://urldefense.com/v3/__https://www.lisalombardphd.com/_files/ugd/61a73f_6b34d9162a7546838ac520f2aa613550.pdf__;!!Dq0X2DkFhyF93HkjWTBQKhk!Qd3qIiBupOEM96tDcRW4GOCjpW_ksIxkkJ3Qo41d-02ShQ4Qf3ZAQcjmp8hF-EVDhnRTy6vwBr_MrUeuUaCNX2ip1-JHLyJZFA$" target="_blank">
+          <span class="form-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg></span>
+          Patient History Form (Child)
+        </a>
+        <a class="form-link" href="https://urldefense.com/v3/__https://www.lisalombardphd.com/_files/ugd/61a73f_588a92a3b0e34e5380278232e63a63ef.pdf__;!!Dq0X2DkFhyF93HkjWTBQKhk!Qd3qIiBupOEM96tDcRW4GOCjpW_ksIxkkJ3Qo41d-02ShQ4Qf3ZAQcjmp8hF-EVDhnRTy6vwBr_MrUeuUaCNX2ip1-JwBbBgdw$" target="_blank">
+          <span class="form-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg></span>
+          Notice of Privacy Form
+        </a>
+        <a class="form-link" href="https://urldefense.com/v3/__https://www.lisalombardphd.com/_files/ugd/61a73f_037ad9dc44fc4e449fdeefe99b0da44b.docx__;!!Dq0X2DkFhyF93HkjWTBQKhk!Qd3qIiBupOEM96tDcRW4GOCjpW_ksIxkkJ3Qo41d-02ShQ4Qf3ZAQcjmp8hF-EVDhnRTy6vwBr_MrUeuUaCNX2ip1-IFj7Zz-A$" target="_blank">
+          <span class="form-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg></span>
+          Therapist-Patient Agreement
+        </a>
+      </div>
+
+    </div><!-- /tab-forms -->
+
+  </div><!-- /tabs-wrapper -->
 </main>
 
 <script>
+  // ── Tab switching ──
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const tabPanels = document.querySelectorAll('.tab-panel');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+      tabPanels.forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+      sendHeight();
+    });
+  });
+
+  // ── Wix iframe auto-sizing ──
   function sendHeight() {
     window.parent.postMessage({ type: 'setHeight', height: document.body.scrollHeight }, '*');
   }
