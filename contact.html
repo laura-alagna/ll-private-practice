@@ -7,20 +7,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --cream: #faf7f4;
-      --warm-white: #f5f0eb;
-      --sage: #8a9e8c;
-      --sage-light: #c4d3c5;
-      --sage-dark: #5a7360;
-      --taupe: #b8a898;
-      --taupe-light: #e8e0d8;
-      --charcoal: #2c2c2c;
-      --mid: #5a5550;
-      --light-text: #8a8480;
-      --border: #ddd5ca;
-      --blue: #6b8fa3;
-      --blue-light: #dde8ee;
-      --blue-dark: #4d6f82;
+      --cream: #faf8f4;
+      --warm-white: #f0ece6;
+      --sage: #5a7a9e;
+      --sage-light: #b0c4d8;
+      --sage-dark: #3d5c7e;
+      --taupe: #c4aeb8;
+      --taupe-light: #f8f2f5;
+      --charcoal: #1e2838;
+      --mid: #445060;
+      --light-text: #8a7880;
+      --border: #e2ddd8;
+      --blue: #5a7a9e;
+      --blue-light: #dde6ee;
+      --blue-dark: #3d5c7e;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body {
@@ -45,7 +45,7 @@
     .page-header::before {
       content: '';
       position: absolute; inset: 0;
-      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(138,158,140,0.10) 0%, transparent 70%);
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(90,122,158,0.10) 0%, transparent 70%);
       pointer-events: none;
     }
     .section-label {
@@ -163,7 +163,7 @@
       transition: background 0.2s, transform 0.2s;
       width: 100%;
     }
-    .submit-btn:hover { background: #3f5445; transform: translateY(-1px); }
+    .submit-btn:hover { background: #2c4560; transform: translateY(-1px); }
 
     /* SIDEBAR */
     .contact-sidebar {}
@@ -225,7 +225,7 @@
     /* SUCCESS STATE */
     .success-msg {
       display: none;
-      background: rgba(90,115,96,0.08);
+      background: rgba(61,92,126,0.08);
       border: 1px solid var(--sage-light);
       border-radius: 10px;
       padding: 28px;
