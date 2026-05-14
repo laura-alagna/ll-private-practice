@@ -19,6 +19,8 @@
       --mid:        #445060;
       --light-text: #8a7880;
       --border:     #e2ddd8;
+      --mauve:      #c4aeb8;
+      --mauve-wash: #f8f2f5;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { max-width: 100%; overflow-x: hidden; }
@@ -60,13 +62,13 @@
     }
     .asch-badge {
       display: inline-flex; align-items: center; gap: 8px;
-      background: var(--blue-light); border: 1px solid rgba(107,143,163,0.3);
+      background: var(--mauve-wash); border: 1px solid var(--mauve);
       border-radius: 100px; padding: 8px 18px;
-      font-size: 0.78rem; color: var(--blue-dark);
+      font-size: 0.78rem; color: var(--sage-dark);
       text-decoration: none; margin-top: 20px;
       transition: background 0.2s;
     }
-    .asch-badge:hover { background: #ccdde7; }
+    .asch-badge:hover { background: #e8d8e2; }
     .asch-badge svg { width: 14px; height: 14px; fill: var(--blue-dark); }
 
     /* CONTAINER */

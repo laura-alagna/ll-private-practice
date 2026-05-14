@@ -10,7 +10,10 @@
       --cream: #faf8f4; --warm-white: #f0ece6;
       --sage: #5a7a9e; --sage-light: #b0c4d8; --sage-dark: #3d5c7e;
       --charcoal: #1e2838; --mid: #445060; --light-text: #8a7880;
-      --border: #e2ddd8; --blue: #5a7a9e; --blue-light: #dde6ee; --blue-dark: #3d5c7e;
+      --border: #e2ddd8;
+      --mauve:      #c4aeb8;
+      --mauve-wash: #f8f2f5;
+      --blue: #5a7a9e; --blue-light: #dde6ee; --blue-dark: #3d5c7e;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { max-width: 100%; overflow-x: hidden; }
@@ -44,7 +47,7 @@
     .contact-line a { color: var(--sage-dark); text-decoration: none; }
     .contact-line a:hover { text-decoration: underline; }
     .contact-line strong { display: block; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--light-text); margin-bottom: 2px; }
-    .note-box { background: var(--blue-light); border-left: 3px solid var(--blue); border-radius: 0 8px 8px 0; padding: 16px 18px; font-size: 0.85rem; color: var(--mid); line-height: 1.75; }
+    .note-box { background: var(--mauve-wash); border-left: 3px solid var(--mauve); border-radius: 0 8px 8px 0; padding: 16px 18px; font-size: 0.85rem; color: var(--mid); line-height: 1.75; }
     .forms-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .form-link { display: flex; align-items: center; gap: 12px; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; text-decoration: none; color: var(--charcoal); font-size: 0.85rem; line-height: 1.4; transition: all 0.2s; box-shadow: 0 1px 6px rgba(0,0,0,0.03); }
     .form-link:hover { border-color: var(--sage); background: var(--warm-white); color: var(--sage-dark); }

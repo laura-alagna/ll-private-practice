@@ -24,6 +24,8 @@
       --mid:        #445060;
       --light-text: #8a7880;
       --border:     #e2ddd8;
+      --mauve:      #c4aeb8;
+      --mauve-wash: #f8f2f5;
       --white:      #ffffff;
     }
 
@@ -245,8 +247,9 @@
     }
     .tips-list li::before { content: '✓'; color: var(--teal-dark); font-weight: 500; font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
     .when-note {
+      background: var(--mauve-wash);
       margin-top: 24px; background: var(--white);
-      border: 1px solid var(--border); border-left: 3px solid var(--teal);
+      border: 1px solid var(--border); border-left: 3px solid var(--mauve);
       border-radius: 0 10px 10px 0; padding: 16px 20px;
       font-size: 0.94rem; color: var(--mid); line-height: 1.8;
     }
@@ -330,7 +333,8 @@
       .tips-section { padding: 32px 20px; }
       .tips-list { gap: 8px; }
       .tips-list li { padding: 12px 14px; }
-      .when-note { padding: 14px 16px; }
+      .when-note {
+      background: var(--mauve-wash); padding: 14px 16px; }
       .providers-section { padding: 28px 0; }
       .cta-section { margin: 0 16px 40px; padding: 28px 16px 32px; }
       .cta-contacts { flex-direction: column; align-items: center; }
