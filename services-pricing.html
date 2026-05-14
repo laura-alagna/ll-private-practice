@@ -82,12 +82,8 @@
     @media (max-width: 600px) {
       .card-row, .forms-grid, .insurance-grid { grid-template-columns: 1fr; }
       .section { padding: 32px 0 10px; }
-      .fee-table thead th { padding: 11px 12px; font-size: 0.68rem; }
-      .fee-table tbody td { padding: 12px 12px; font-size: 0.84rem; }
-      .fee-table tbody td.fee { font-size: 0.95rem; }
-      .fee-table tbody td.cpt { font-size: 0.76rem; }
       hr.divider { margin: 6px 0 28px; }
-      .table-scroll { margin-bottom: 28px; }
+      .table-scroll { margin-bottom: 28px; overflow-x: visible; }
       .note-box { margin-bottom: 28px; }
       .card-row { margin-bottom: 28px; }
       .insurance-grid { margin-bottom: 28px; }
@@ -95,6 +91,21 @@
       .page-header { padding: 36px 20px 32px; }
       .container { padding: 0 20px; }
       .window-banner { height: 160px; border-radius: 8px; }
+      .fee-table thead th.col-length,
+      .fee-table thead th.col-cpt,
+      .fee-table tbody td.length,
+      .fee-table tbody td.cpt { display: none; }
+      .fee-table thead th { padding: 11px 14px; font-size: 0.7rem; }
+      .fee-table tbody td { padding: 13px 14px; font-size: 0.88rem; }
+      .fee-table tbody td.fee { font-size: 1rem; }
+      .fee-table td.svc::after {
+        content: attr(data-sub);
+        display: block;
+        font-size: 0.74rem;
+        color: var(--light-text);
+        margin-top: 3px;
+        font-weight: 300;
+      }
     }
   </style>
 </head>
@@ -119,13 +130,13 @@
 
   <div class="table-scroll">
   <table class="fee-table">
-    <thead><tr><th>Service</th><th>Length</th><th>CPT Code</th><th>Fee</th></tr></thead>
+    <thead><tr><th>Service</th><th class="col-length">Length</th><th class="col-cpt">CPT Code</th><th>Fee</th></tr></thead>
     <tbody>
-      <tr><td>Initial Assessment</td><td class="length">Varies (typically 80–90 min)</td><td class="cpt">90791</td><td class="fee">$240</td></tr>
-      <tr><td>Individual Psychotherapy</td><td class="length">38–52 min</td><td class="cpt">90834</td><td class="fee">$200</td></tr>
-      <tr><td>Individual Psychotherapy</td><td class="length">53–60 min</td><td class="cpt">90837</td><td class="fee">$215</td></tr>
-      <tr><td>Health &amp; Behavior Intervention</td><td class="length">Per 15 min</td><td class="cpt">96156, 96158</td><td class="fee">Varies</td></tr>
-      <tr><td>Clinical Phone Consultation</td><td class="length">21–30 min</td><td class="cpt">98968</td><td class="fee">$100</td></tr>
+      <tr><td class="svc" data-sub="Varies · typically 80–90 min">Initial Assessment</td><td class="length">Varies (typically 80–90 min)</td><td class="cpt">90791</td><td class="fee">$240</td></tr>
+      <tr><td class="svc" data-sub="38–52 min">Individual Psychotherapy</td><td class="length">38–52 min</td><td class="cpt">90834</td><td class="fee">$200</td></tr>
+      <tr><td class="svc" data-sub="53–60 min">Individual Psychotherapy</td><td class="length">53–60 min</td><td class="cpt">90837</td><td class="fee">$215</td></tr>
+      <tr><td class="svc" data-sub="Per 15 min">Health &amp; Behavior Intervention</td><td class="length">Per 15 min</td><td class="cpt">96156, 96158</td><td class="fee">Varies</td></tr>
+      <tr><td class="svc" data-sub="21–30 min">Clinical Phone Consultation</td><td class="length">21–30 min</td><td class="cpt">98968</td><td class="fee">$100</td></tr>
     </tbody>
   </table>
   </div>
@@ -140,13 +151,13 @@
 
   <div class="table-scroll">
   <table class="fee-table">
-    <thead><tr><th>Service</th><th>Length</th><th>CPT Code</th><th>Fee</th></tr></thead>
+    <thead><tr><th>Service</th><th class="col-length">Length</th><th class="col-cpt">CPT Code</th><th>Fee</th></tr></thead>
     <tbody>
-      <tr><td>Group Therapy</td><td class="length">Varies</td><td class="cpt">90849, 90853</td><td class="fee">$220</td></tr>
-      <tr><td>Family Psychotherapy</td><td class="length">50+ min</td><td class="cpt">90846, 90847</td><td class="fee">$215</td></tr>
-      <tr><td>Couples Psychotherapy</td><td class="length">50+ min</td><td class="cpt">—</td><td class="fee">$215</td></tr>
-      <tr><td>Health &amp; Behavior Intervention</td><td class="length">Per 15 min</td><td class="cpt">96153, 96154</td><td class="fee">Varies</td></tr>
-      <tr><td>Home Visit <span style="font-size:0.8rem;color:var(--light-text)">(travel billed separately)</span></td><td class="length">Varies</td><td class="cpt">—</td><td class="fee">$250 <span style="font-size:0.78rem;color:var(--light-text)">+ $200/hr travel</span></td></tr>
+      <tr><td class="svc" data-sub="Varies">Group Therapy</td><td class="length">Varies</td><td class="cpt">90849, 90853</td><td class="fee">$220</td></tr>
+      <tr><td class="svc" data-sub="50+ min">Family Psychotherapy</td><td class="length">50+ min</td><td class="cpt">90846, 90847</td><td class="fee">$215</td></tr>
+      <tr><td class="svc" data-sub="50+ min">Couples Psychotherapy</td><td class="length">50+ min</td><td class="cpt">—</td><td class="fee">$215</td></tr>
+      <tr><td class="svc" data-sub="Per 15 min">Health &amp; Behavior Intervention</td><td class="length">Per 15 min</td><td class="cpt">96153, 96154</td><td class="fee">Varies</td></tr>
+      <tr><td class="svc" data-sub="Varies · travel billed separately">Home Visit</td><td class="length">Varies</td><td class="cpt">—</td><td class="fee">$250 <span style="font-size:0.78rem;color:var(--light-text)">+ $200/hr travel</span></td></tr>
     </tbody>
   </table>
   </div>
