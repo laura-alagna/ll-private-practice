@@ -113,13 +113,24 @@
     /* ── Note box ── */
     .note-box { background: var(--mauve-wash); border-left: 3px solid var(--mauve); border-radius: 0 8px 8px 0; padding: 16px 20px; margin-bottom: 40px; font-size: 0.88rem; color: var(--mid); line-height: 1.75; }
 
-    /* ── Forms tab ── */
+    /* ── Forms section (within Fees tab) ── */
     .forms-intro { font-size: 0.92rem; color: var(--mid); line-height: 1.85; max-width: 600px; margin-bottom: 32px; }
-    .forms-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 64px; }
+    .forms-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 0; }
     .form-link { display: flex; align-items: center; gap: 14px; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; text-decoration: none; color: var(--charcoal); font-size: 0.88rem; transition: all 0.2s; box-shadow: 0 1px 6px rgba(0,0,0,0.03); }
     .form-link:hover { border-color: var(--sage); background: var(--warm-white); color: var(--sage-dark); }
     .form-icon { width: 36px; height: 36px; background: var(--sage-light); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .form-icon svg { width: 18px; height: 18px; fill: var(--sage-dark); }
+
+    /* ── CTA strip ── */
+    .cta-strip { background: var(--charcoal); margin: 56px -32px 0; padding: 48px 32px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .cta-strip-text p { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 6px; }
+    .cta-strip-text h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 400; color: #fff; line-height: 1.2; }
+    .cta-strip-links { display: flex; gap: 14px; flex-shrink: 0; }
+    .cta-link { display: inline-flex; align-items: center; padding: 12px 24px; border-radius: 100px; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+    .cta-link-primary { background: #fff; color: var(--charcoal); }
+    .cta-link-primary:hover { background: var(--blue-light); }
+    .cta-link-secondary { border: 1px solid rgba(255,255,255,0.3); color: #fff; }
+    .cta-link-secondary:hover { border-color: rgba(255,255,255,0.7); }
 
     /* ── Mobile ── */
     @media (max-width: 600px) {
@@ -128,7 +139,6 @@
       .tabs-wrapper { padding: 20px 0 0; }
       .tab-btn { padding: 12px 14px; font-size: 0.72rem; }
       .tab-nav { margin-bottom: 32px; }
-      .tab-panel.active { padding-bottom: 40px; }
       .section + .section { padding-top: 32px; }
       .modality-grid { grid-template-columns: 1fr; }
       .session-row { grid-template-columns: 1fr; }
@@ -136,8 +146,11 @@
       .card-row { margin-bottom: 28px; }
       .specialty-block { padding: 24px 20px; margin-bottom: 16px; }
       .forms-intro { margin-bottom: 20px; }
-      .forms-grid { margin-bottom: 40px; }
+      .forms-grid { margin-bottom: 32px; grid-template-columns: 1fr; }
       .window-banner { height: 160px; border-radius: 8px; margin-bottom: 32px; }
+      .cta-strip { margin: 40px -20px 0; padding: 36px 20px; flex-direction: column; align-items: flex-start; gap: 24px; }
+      .cta-strip-links { flex-direction: column; width: 100%; }
+      .cta-link { justify-content: center; }
       .note-box { margin-bottom: 28px; }
       .table-scroll { margin-bottom: 28px; }
       hr.divider { margin: 6px 0 32px; }
@@ -176,8 +189,7 @@
     <nav class="tab-nav" role="tablist">
       <button class="tab-btn active" role="tab" aria-selected="true"  data-tab="therapy">Individual Therapy</button>
       <button class="tab-btn"        role="tab" aria-selected="false" data-tab="specialties">Specialties</button>
-      <button class="tab-btn"        role="tab" aria-selected="false" data-tab="fees">Fees</button>
-      <button class="tab-btn"        role="tab" aria-selected="false" data-tab="forms">Patient Forms</button>
+      <button class="tab-btn"        role="tab" aria-selected="false" data-tab="fees">Fees &amp; Forms</button>
     </nav>
 
 
@@ -222,6 +234,17 @@
 
       <div class="note-box">
         Please <a href="https://www.lisalombardphd.com/contact" style="color:var(--sage-dark);">reach out</a> to discuss pediatric therapy options in more detail — every child's situation is different and I'm happy to talk through what might be the best fit.
+      </div>
+
+      <div class="cta-strip">
+        <div class="cta-strip-text">
+          <p>Get in touch</p>
+          <h3>Ready to get started?</h3>
+        </div>
+        <div class="cta-strip-links">
+          <a href="tel:7086550063" class="cta-link cta-link-primary">708-655-0063</a>
+          <a href="mailto:lisalombardphd@gmail.com" class="cta-link cta-link-secondary">Send an Email</a>
+        </div>
       </div>
 
     </div><!-- /tab-therapy -->
@@ -281,6 +304,17 @@
         <p>I integrate medical hypnosis, guided imagery, and mindfulness into psychotherapy for both adults and children. These are evidence-based tools — not what you've seen on a stage — and they work most effectively when embedded within a therapeutic relationship.</p>
         <p>For adults, hypnotherapy can help with anxiety, depression, pain management, sleep, smoking cessation, weight and behavioral habits, concentration difficulties, and surgery preparation. For children, pediatric hypnosis and biofeedback offer developmentally appropriate strategies for managing pain, anxiety, habits such as bed-wetting or nail-biting, and gastrointestinal issues like functional abdominal pain.</p>
         <a href="https://www.lisalombardphd.com/clinical-hypnosis" class="specialty-link">Learn more about clinical hypnosis →</a>
+      </div>
+
+      <div class="cta-strip">
+        <div class="cta-strip-text">
+          <p>Get in touch</p>
+          <h3>Ready to get started?</h3>
+        </div>
+        <div class="cta-strip-links">
+          <a href="tel:7086550063" class="cta-link cta-link-primary">708-655-0063</a>
+          <a href="mailto:lisalombardphd@gmail.com" class="cta-link cta-link-secondary">Send an Email</a>
+        </div>
       </div>
 
     </div><!-- /tab-specialties -->
@@ -365,19 +399,13 @@
         <strong>Psychological Evaluations:</strong> Psychological evaluations are not currently being offered. Please reach out if you'd like a referral recommendation.
       </div>
 
-    </div><!-- /tab-fees -->
-
-
-    <!-- ═══════════════════════════════════════
-         TAB 4 — Patient Forms
-    ════════════════════════════════════════ -->
-    <div class="tab-panel" id="tab-forms">
+      <hr class="divider">
 
       <div class="section">
         <p class="section-label">Before Your First Appointment</p>
         <h2 class="section-title">Patient Forms</h2>
+        <p class="forms-intro">Please print and complete these forms before arriving for your first session. It helps us make the most of our time together from day one.</p>
       </div>
-      <p class="forms-intro">Please print and complete these forms before arriving for your first session. It helps us make the most of our time together from day one.</p>
 
       <div class="forms-grid">
         <a class="form-link" href="https://urldefense.com/v3/__https://www.lisalombardphd.com/_files/ugd/61a73f_a485c476213f47c8963f865509382ac9.pdf__;!!Dq0X2DkFhyF93HkjWTBQKhk!Qd3qIiBupOEM96tDcRW4GOCjpW_ksIxkkJ3Qo41d-02ShQ4Qf3ZAQcjmp8hF-EVDhnRTy6vwBr_MrUeuUaCNX2ip1-LDb0oytg$" target="_blank">
@@ -398,7 +426,18 @@
         </a>
       </div>
 
-    </div><!-- /tab-forms -->
+      <div class="cta-strip">
+        <div class="cta-strip-text">
+          <p>Get in touch</p>
+          <h3>Ready to get started?</h3>
+        </div>
+        <div class="cta-strip-links">
+          <a href="tel:7086550063" class="cta-link cta-link-primary">708-655-0063</a>
+          <a href="mailto:lisalombardphd@gmail.com" class="cta-link cta-link-secondary">Send an Email</a>
+        </div>
+      </div>
+
+    </div><!-- /tab-fees -->
 
   </div><!-- /tabs-wrapper -->
 </main>
